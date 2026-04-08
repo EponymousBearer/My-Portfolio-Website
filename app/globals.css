@@ -2,13 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-color: #f4f7fb;
+  --surface-color: #ffffff;
+  --text-color: #0f172a;
+  --muted-color: #475569;
+}
+
+.dark {
+  --bg-color: #080d1a;
+  --surface-color: #0e1425;
+  --text-color: #f8fafc;
+  --muted-color: #94a3b8;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080d1a;
+  background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -38,19 +58,23 @@ html {
 
 /* Glass card utility */
 .glass-card {
-  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  @apply rounded-2xl border border-slate-900/10 bg-slate-900/5 backdrop-blur-md dark:border-white/10 dark:bg-white/5;
 }
 
 /* Glass card hover */
 .glass-card-hover {
-  @apply glass-card hover:border-cyan-500/40 transition-all duration-300;
+  @apply glass-card transition-all duration-300 hover:border-cyan-500/40;
 }
 
 /* Gradient border */
 .gradient-border {
   position: relative;
-  background: #0e1425;
+  background: #f8fbff;
   border-radius: 1rem;
+}
+
+.dark .gradient-border {
+  background: #0e1425;
 }
 
 .gradient-border::before {

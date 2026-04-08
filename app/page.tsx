@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import TechStack from '@/components/TechStack'
@@ -10,8 +9,7 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#080d1a]">
-      <Navbar />
+    <main className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
       <Hero />
       <About />
       <TechStack />

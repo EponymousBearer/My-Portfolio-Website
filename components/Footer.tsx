@@ -1,19 +1,18 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Heart, Code } from 'lucide-react'
-import { personalInfo, footerData, navLinks } from '@/lib/data'
+import { motion } from "framer-motion";
+import { personalInfo, footerData, navLinks } from "@/lib/data";
 
 export default function Footer() {
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <footer className="py-12 border-t border-white/5">
+    <footer className="border-t border-slate-300/60 py-12 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Tagline */}
@@ -23,10 +22,17 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <span className="text-3xl font-bold font-heading gradient-text">
-              {personalInfo.logo}
-            </span>
-            <p className="mt-2 text-slate-500 text-sm">{footerData.tagline}</p>
+            <div
+              className="text-4xl text-slate-900 dark:text-white"
+              style={{
+                fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive",
+              }}
+            >
+              A
+            </div>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-500">
+              {footerData.tagline}
+            </p>
           </motion.div>
 
           {/* Quick Links */}
@@ -41,7 +47,7 @@ export default function Footer() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-slate-400 hover:text-cyan-400 transition-colors duration-300 text-sm"
+                className="text-sm text-slate-600 transition-colors duration-300 hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
               >
                 {link.label}
               </button>
@@ -58,7 +64,7 @@ export default function Footer() {
           >
             <a
               href={`mailto:${personalInfo.email}`}
-              className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-300"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"
               aria-label="Email"
             >
               <svg
@@ -80,7 +86,7 @@ export default function Footer() {
               href={`https://${personalInfo.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-300"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"
               aria-label="LinkedIn"
             >
               <svg
@@ -103,7 +109,7 @@ export default function Footer() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-300"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"
               aria-label="GitHub"
             >
               <svg
@@ -130,17 +136,13 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-12 pt-8 border-t border-white/5 text-center"
+          className="mt-12 border-t border-slate-300/60 pt-8 text-center dark:border-white/5"
         >
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-1">
+          <p className="flex items-center justify-center gap-1 text-sm text-slate-600 dark:text-slate-500">
             {footerData.copyright}
-          </p>
-          <p className="mt-2 text-slate-600 text-xs flex items-center justify-center gap-1">
-            Made with <Heart size={12} className="text-red-500 fill-red-500" /> using{' '}
-            <Code size={12} className="text-cyan-400" />
           </p>
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }

@@ -44,10 +44,10 @@ export default function TechStack() {
           <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
             My Skills
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold font-heading text-white">
+          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
             Tech <span className="gradient-text">Stack</span>
           </h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
             Technologies I work with to build scalable and performant applications
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function TechStack() {
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               className="glass-card p-6 md:p-8"
             >
-              <h3 className="text-xl font-bold font-heading text-white mb-6 flex items-center gap-3">
+              <h3 className="mb-6 flex items-center gap-3 text-xl font-bold font-heading text-slate-900 dark:text-white">
                 <span className="w-8 h-8 rounded-lg bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center text-cyan-400 text-sm">
                   {category.name.charAt(0)}
                 </span>
@@ -85,7 +85,7 @@ export default function TechStack() {
                       backgroundColor: 'rgba(34, 211, 238, 0.15)',
                       borderColor: 'rgba(34, 211, 238, 0.4)'
                     }}
-                    className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-slate-300 text-sm font-medium transition-all duration-300 cursor-default"
+                    className="cursor-default rounded-full border border-slate-300 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
                   >
                     {skill}
                   </motion.span>

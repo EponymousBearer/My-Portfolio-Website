@@ -28,10 +28,10 @@ export default function Experience() {
           <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
             My Journey
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold font-heading text-white">
+          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
             Work <span className="gradient-text">Experience</span>
           </h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
             Professional experience building scalable applications and leading development teams
           </p>
         </motion.div>
@@ -39,7 +39,7 @@ export default function Experience() {
         {/* Timeline */}
         <div ref={containerRef} className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 md:-translate-x-1/2">
+          <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-slate-300 dark:bg-white/10 md:left-1/2 md:-translate-x-1/2">
             <motion.div
               style={{ height: lineHeight }}
               className="w-full bg-gradient-to-b from-cyan-400 to-blue-500"
@@ -60,7 +60,10 @@ export default function Experience() {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-cyan-400 rounded-full border-4 border-[#080d1a] md:-translate-x-1/2 z-10 shadow-lg shadow-cyan-400/50" />
+                <div
+                  className="absolute left-4 z-10 h-4 w-4 rounded-full border-4 bg-cyan-400 shadow-lg shadow-cyan-400/50 md:left-1/2 md:-translate-x-1/2"
+                  style={{ borderColor: 'var(--bg-color)' }}
+                />
 
                 {/* Content */}
                 <div className="pl-12 md:pl-0 md:w-1/2 md:px-12">
@@ -75,11 +78,11 @@ export default function Experience() {
                       </span>
                     </div>
 
-                    <h3 className="text-xl md:text-2xl font-bold font-heading text-white">
+                    <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white md:text-2xl">
                       {exp.role}
                     </h3>
 
-                    <div className="mt-2 flex flex-wrap items-center gap-4 text-slate-400 text-sm">
+                    <div className="mt-2 flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
                       <span className="flex items-center gap-1.5">
                         <Briefcase size={14} className="text-cyan-400" />
                         {exp.company}
@@ -99,7 +102,7 @@ export default function Experience() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: 0.3 + hIndex * 0.1 }}
-                          className="flex items-start gap-3 text-slate-400 text-sm"
+                          className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400"
                         >
                           <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
                           {highlight}

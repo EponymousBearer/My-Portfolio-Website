@@ -22,10 +22,10 @@ export default function Contact() {
           <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
             Get In Touch
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold font-heading text-white">
+          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
-          <p className="mt-4 text-slate-400 max-w-xl mx-auto">
+          <p className="mx-auto mt-4 max-w-xl text-slate-600 dark:text-slate-400">
             Have a project in mind or want to collaborate? I&apos;d love to hear from you.
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ export default function Contact() {
                 <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
                   Email
                 </span>
-                <p className="text-white font-medium">{contactData.email}</p>
+                <p className="font-medium text-slate-900 dark:text-white">{contactData.email}</p>
               </div>
               <ArrowUpRight
                 className="text-slate-500 group-hover:text-cyan-400 transition-colors"
@@ -79,7 +79,7 @@ export default function Contact() {
                 <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
                   LinkedIn
                 </span>
-                <p className="text-white font-medium">{contactData.linkedin}</p>
+                <p className="font-medium text-slate-900 dark:text-white">{contactData.linkedin}</p>
               </div>
               <ArrowUpRight
                 className="text-slate-500 group-hover:text-cyan-400 transition-colors"
@@ -97,7 +97,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 px-5 py-3 glass-card text-slate-400">
+          <div className="glass-card inline-flex items-center gap-2 px-5 py-3 text-slate-600 dark:text-slate-400">
             <MapPin size={18} className="text-cyan-400" />
             <span>{contactData.location}</span>
           </div>

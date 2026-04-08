@@ -56,7 +56,7 @@ function StatCard({
         {count}
         {suffix}
       </div>
-      <div className="mt-2 text-slate-400 text-sm">{label}</div>
+      <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">{label}</div>
     </motion.div>
   )
 }
@@ -86,7 +86,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-4 text-4xl md:text-5xl font-bold font-heading text-white"
+              className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl"
             >
               Crafting Digital
               <br />
@@ -97,7 +97,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="mt-6 text-slate-400 text-lg leading-relaxed"
+              className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
             >
               {aboutData.bio}
             </motion.p>

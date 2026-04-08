@@ -22,10 +22,10 @@ export default function Projects() {
           <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
             My Work
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold font-heading text-white">
+          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
             Showcasing some of my best work in full-stack development
           </p>
         </motion.div>
@@ -57,12 +57,12 @@ export default function Projects() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-white group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold font-heading text-slate-900 transition-colors duration-300 group-hover:text-cyan-500 dark:text-white dark:group-hover:text-cyan-400 md:text-2xl">
                   {project.name}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-3 text-slate-400 text-sm leading-relaxed">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                   {project.description}
                 </p>
 
@@ -75,7 +75,7 @@ export default function Projects() {
                     {project.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-slate-300 text-xs"
+                        className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
                       >
                         {tech}
                       </span>
@@ -85,21 +85,30 @@ export default function Projects() {
 
                 {/* Actions */}
                 <div className="mt-6 flex items-center gap-3">
-                  <motion.button
+                  <motion.a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex-1 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white text-sm font-semibold flex items-center justify-center gap-2"
                   >
                     <ExternalLink size={16} />
                     View Project
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="p-2.5 glass-card text-slate-300 hover:text-white transition-colors"
-                  >
-                    <Github size={18} />
-                  </motion.button>
+                  </motion.a>
+                  {project.repoUrl ? (
+                    <motion.a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="glass-card p-2.5 text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                      aria-label={`View ${project.name} source code`}
+                    >
+                      <Github size={18} />
+                    </motion.a>
+                  ) : null}
                 </div>
               </div>
 
@@ -114,13 +123,13 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-card border-dashed border-2 border-white/10 flex items-center justify-center min-h-[300px]"
+            className="glass-card flex min-h-[300px] items-center justify-center border-2 border-dashed border-slate-300 dark:border-white/10"
           >
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/5 flex items-center justify-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-slate-100 dark:bg-white/5">
                 <span className="text-2xl">🚀</span>
               </div>
-              <h3 className="text-lg font-semibold text-slate-300">More Projects</h3>
+              <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300">More Projects</h3>
               <p className="mt-2 text-slate-500 text-sm">Coming soon...</p>
             </div>
           </motion.div>

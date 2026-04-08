@@ -29,7 +29,7 @@ export default function CurrentlySection() {
           <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
             What I&apos;m Up To
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold font-heading text-white">
+          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
             Currently <span className="gradient-text">Working On</span>
           </h2>
         </motion.div>
@@ -56,12 +56,12 @@ export default function CurrentlySection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold font-heading text-white mb-2">
+                  <h3 className="mb-2 text-lg font-bold font-heading text-slate-900 dark:text-white">
                     {activity.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {activity.description}
                   </p>
                 </div>
@@ -76,7 +76,7 @@ export default function CurrentlySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-center text-slate-400 max-w-2xl mx-auto"
+          className="mx-auto mt-12 max-w-2xl text-center text-slate-600 dark:text-slate-400"
         >
           {currentlyData.footerText}
         </motion.p>
