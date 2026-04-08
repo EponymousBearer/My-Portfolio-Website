@@ -106,7 +106,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://github.com"
+              href={`https://${personalInfo.github}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"

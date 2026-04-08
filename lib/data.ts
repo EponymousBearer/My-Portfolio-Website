@@ -5,6 +5,7 @@ export const personalInfo = {
   location: 'Karachi, Pakistan',
   email: 'adnasir607@gmail.com',
   linkedin: 'linkedin.com/in/muhammadadnan',
+  github: 'github.com/EponymousBearer',
   logo: 'MA'
 } as const
 
