@@ -1,8 +1,7 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { Briefcase, Users, BookOpen, MessageCircle } from 'lucide-react'
 import { currentlyData } from '@/lib/data'
+import Reveal from './ui/Reveal'
+import SectionHeader from './ui/SectionHeader'
 
 const iconMap: Record<string, React.ElementType> = {
   Briefcase,
@@ -13,74 +12,37 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function CurrentlySection() {
   return (
-    <section className="py-20 md:py-32 relative">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="currently" className="wrap scroll-mt-24 py-20 md:py-28">
+      <SectionHeader index="05" label="Stop Press" title="Currently" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
-            What I&apos;m Up To
-          </span>
-          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
-            Currently <span className="gradient-text">Working On</span>
-          </h2>
-        </motion.div>
-
-        {/* Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {currentlyData.activities.map((activity, index) => {
-            const Icon = iconMap[activity.icon]
-
-            return (
-              <motion.div
-                key={activity.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="gradient-border p-6 group"
-              >
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                    <Icon className="text-cyan-400" size={24} />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="mb-2 text-lg font-bold font-heading text-slate-900 dark:text-white">
-                    {activity.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {activity.description}
-                  </p>
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-
-        {/* Footer Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mx-auto mt-12 max-w-2xl text-center text-slate-600 dark:text-slate-400"
-        >
-          {currentlyData.footerText}
-        </motion.p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {currentlyData.activities.map((activity, i) => {
+          const Icon = iconMap[activity.icon]
+          return (
+            <Reveal
+              key={activity.title}
+              delay={i * 0.08}
+              className={`border-t-2 border-ink p-6 ${
+                i < currentlyData.activities.length - 1 ? 'md:border-r md:border-r-ink' : ''
+              }`}
+            >
+              <div className="flex h-10 w-10 items-center justify-center border border-ink">
+                {Icon && <Icon size={20} strokeWidth={2} className="text-accent" />}
+              </div>
+              <p className="eyebrow mt-4 text-ink-soft">{activity.title}</p>
+              <p className="mt-2 font-display text-xl font-bold leading-snug tracking-mega">
+                {activity.description}
+              </p>
+            </Reveal>
+          )
+        })}
       </div>
+
+      <Reveal delay={0.15}>
+        <p className="mt-10 max-w-2xl border-l-2 border-accent pl-5 text-xl italic leading-relaxed text-ink-soft">
+          {currentlyData.footerText}
+        </p>
+      </Reveal>
     </section>
   )
 }

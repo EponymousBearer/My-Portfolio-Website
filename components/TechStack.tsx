@@ -1,97 +1,40 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { techStackData } from '@/lib/data'
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05
-    }
-  }
-}
-
-const pillVariants = {
-  hidden: { opacity: 0, scale: 0.8, y: 20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: 'easeOut'
-    }
-  }
-}
+import Reveal from './ui/Reveal'
+import SectionHeader from './ui/SectionHeader'
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="py-20 md:py-32 relative">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="techstack" className="scroll-mt-24 border-y border-ink bg-paper-2 py-20 md:py-28">
+      <div className="wrap">
+        <SectionHeader
+          index="02"
+          label="Capabilities"
+          title="Tech Stack"
+          kicker="The tools used to ship scalable, performant products end to end."
+        />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
-            My Skills
-          </span>
-          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
-            Tech <span className="gradient-text">Stack</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
-            Technologies I work with to build scalable and performant applications
-          </p>
-        </motion.div>
-
-        {/* Tech Categories */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {techStackData.map((category, categoryIndex) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="glass-card p-6 md:p-8"
-            >
-              <h3 className="mb-6 flex items-center gap-3 text-xl font-bold font-heading text-slate-900 dark:text-white">
-                <span className="w-8 h-8 rounded-lg bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center text-cyan-400 text-sm">
-                  {category.name.charAt(0)}
-                </span>
-                {category.name}
-              </h3>
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="flex flex-wrap gap-3"
-              >
+        {/* Classified index with dotted leaders */}
+        <div className="grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2">
+          {techStackData.map((category, i) => (
+            <Reveal key={category.name} delay={i * 0.06} className="border-t-2 border-ink pt-4">
+              <div className="mb-4 flex items-baseline gap-3">
+                <span className="eyebrow text-accent">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="font-display text-2xl font-bold tracking-mega">{category.name}</h3>
+              </div>
+              <ul>
                 {category.skills.map((skill) => (
-                  <motion.span
-                    key={skill}
-                    variants={pillVariants}
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: 'rgba(34, 211, 238, 0.15)',
-                      borderColor: 'rgba(34, 211, 238, 0.4)'
-                    }}
-                    className="cursor-default rounded-full border border-slate-300 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
-                  >
-                    {skill}
-                  </motion.span>
+                  <li key={skill} className="flex items-baseline gap-3 py-2 text-lg">
+                    <span>{skill}</span>
+                    <span
+                      aria-hidden
+                      className="-translate-y-[0.28em] flex-1 border-b border-dotted"
+                      style={{ borderColor: 'var(--rule-strong)' }}
+                    />
+                    <span className="eyebrow text-accent">✓</span>
+                  </li>
                 ))}
-              </motion.div>
-            </motion.div>
+              </ul>
+            </Reveal>
           ))}
         </div>
       </div>

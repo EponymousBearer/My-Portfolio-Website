@@ -1,107 +1,81 @@
-'use client'
+import { ArrowUpRight } from 'lucide-react'
+import { contactData, personalInfo } from '@/lib/data'
+import Reveal from './ui/Reveal'
+import ContactForm from './ContactForm'
 
-import { motion } from 'framer-motion'
-import { Mail, Linkedin, MapPin, ArrowUpRight } from 'lucide-react'
-import { contactData } from '@/lib/data'
+const channels = [
+  { label: 'Email', value: contactData.email, href: `mailto:${contactData.email}` },
+  { label: 'LinkedIn', value: contactData.linkedin, href: `https://${contactData.linkedin}` },
+  { label: 'GitHub', value: personalInfo.github, href: `https://${personalInfo.github}` }
+]
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-32 relative">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
-            Get In Touch
-          </span>
-          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
-            Let&apos;s <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-slate-600 dark:text-slate-400">
-            Have a project in mind or want to collaborate? I&apos;d love to hear from you.
-          </p>
-        </motion.div>
-
-        {/* Contact Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          {/* Email Button */}
-          <motion.a
-            href={`mailto:${contactData.email}`}
-            whileHover={{ scale: 1.02, y: -3 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto group"
-          >
-            <div className="glass-card-hover px-8 py-5 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
-                <Mail className="text-cyan-400" size={24} />
-              </div>
-              <div className="flex-1">
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
-                  Email
-                </span>
-                <p className="font-medium text-slate-900 dark:text-white">{contactData.email}</p>
-              </div>
-              <ArrowUpRight
-                className="text-slate-500 group-hover:text-cyan-400 transition-colors"
-                size={20}
-              />
-            </div>
-          </motion.a>
-
-          {/* LinkedIn Button */}
-          <motion.a
-            href={`https://${contactData.linkedin}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02, y: -3 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto group"
-          >
-            <div className="glass-card-hover px-8 py-5 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
-                <Linkedin className="text-cyan-400" size={24} />
-              </div>
-              <div className="flex-1">
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
-                  LinkedIn
-                </span>
-                <p className="font-medium text-slate-900 dark:text-white">{contactData.linkedin}</p>
-              </div>
-              <ArrowUpRight
-                className="text-slate-500 group-hover:text-cyan-400 transition-colors"
-                size={20}
-              />
-            </div>
-          </motion.a>
-        </motion.div>
-
-        {/* Location Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 flex justify-center"
-        >
-          <div className="glass-card inline-flex items-center gap-2 px-5 py-3 text-slate-600 dark:text-slate-400">
-            <MapPin size={18} className="text-cyan-400" />
-            <span>{contactData.location}</span>
+    <section id="contact" className="scroll-mt-24 border-t-2 border-ink bg-ink py-20 text-paper md:py-28">
+      <div className="wrap">
+        <Reveal>
+          <div className="flex items-center gap-4">
+            <span className="eyebrow text-accent">§ 06</span>
+            <span className="h-px flex-1 bg-paper/40" />
+            <span className="eyebrow text-paper/60">Correspondence</span>
           </div>
-        </motion.div>
+        </Reveal>
+
+        <Reveal delay={0.05}>
+          <h2 className="mt-8 font-display text-[14vw] font-extrabold leading-[0.86] tracking-mega sm:text-7xl md:text-8xl">
+            Let&apos;s build
+            <br />
+            <span
+              style={{ WebkitTextStroke: '2px var(--paper)', color: 'transparent' }}
+            >
+              something.
+            </span>
+          </h2>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <p className="mt-8 max-w-xl text-xl leading-relaxed text-paper/70">
+            Have a role, a project, or an idea worth shipping? I&apos;m{' '}
+            <span className="text-accent">available for hire</span> and reply fast.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Direct channels */}
+          <div className="border-t border-paper/25">
+            {channels.map((c, i) => (
+              <Reveal key={c.label} delay={0.1 + i * 0.06}>
+                <a
+                  href={c.href}
+                  target={c.href.startsWith('http') ? '_blank' : undefined}
+                  rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="group flex items-center justify-between gap-4 border-b border-paper/25 py-5 transition-colors hover:text-accent"
+                >
+                  <div className="flex min-w-0 flex-col gap-0.5">
+                    <span className="eyebrow text-paper/50 group-hover:text-accent">{c.label}</span>
+                    <span className="break-all font-display text-lg font-bold tracking-mega sm:text-2xl">
+                      {c.value}
+                    </span>
+                  </div>
+                  <ArrowUpRight
+                    size={24}
+                    className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </a>
+              </Reveal>
+            ))}
+            <Reveal delay={0.3}>
+              <p className="eyebrow mt-8 text-paper/50">
+                Based in {contactData.location} — working remotely, worldwide.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Contact form */}
+          <Reveal delay={0.15}>
+            <ContactForm />
+          </Reveal>
+        </div>
       </div>
     </section>
   )

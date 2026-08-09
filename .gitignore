@@ -34,3 +34,7 @@ next-env.d.ts
 
 dist
 config.bat
+dev-server.log
+
+# OG-image source fonts (Bricolage, OFL) — only needed to regenerate public/og.png
+/fonts

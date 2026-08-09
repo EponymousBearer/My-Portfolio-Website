@@ -1,148 +1,37 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { personalInfo, footerData, navLinks } from "@/lib/data";
+import { ArrowUp } from 'lucide-react'
+import { personalInfo, footerData } from '@/lib/data'
 
 export default function Footer() {
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <footer className="border-t border-slate-300/60 py-12 dark:border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo & Tagline */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center md:text-left"
-          >
-            <div
-              className="text-4xl text-slate-900 dark:text-white"
-              style={{
-                fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive",
-              }}
-            >
-              A
-            </div>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-500">
-              {footerData.tagline}
-            </p>
-          </motion.div>
+    <footer className="bg-ink text-paper">
+      <div className="wrap">
+        <div className="flex flex-col gap-6 border-t border-paper/25 py-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-display text-lg font-extrabold tracking-mega">{personalInfo.name}</p>
+            <p className="eyebrow mt-1 text-paper/50">{footerData.tagline}</p>
+          </div>
 
-          {/* Quick Links */}
-          <motion.nav
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex flex-wrap items-center justify-center gap-6"
-          >
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-sm text-slate-600 transition-colors duration-300 hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
-              >
-                {link.label}
-              </button>
-            ))}
-          </motion.nav>
+          <p className="eyebrow max-w-xs text-paper/50">
+            Set in Bricolage Grotesque, Newsreader &amp; JetBrains Mono. Built with Next.js &amp; Tailwind.
+          </p>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex items-center gap-4"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="group inline-flex items-center gap-2 self-start border border-paper/40 px-4 py-2 transition-colors hover:border-accent hover:text-accent sm:self-auto"
+            aria-label="Back to top"
           >
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"
-              aria-label="Email"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-            </a>
-            <a
-              href={`https://${personalInfo.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"
-              aria-label="LinkedIn"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect width="4" height="12" x="2" y="9" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <a
-              href={`https://${personalInfo.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-slate-600 transition-all duration-300 hover:border-cyan-500/40 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-cyan-400"
-              aria-label="GitHub"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                <path d="M9 18c-4.51 2-5-2-7-2" />
-              </svg>
-            </a>
-          </motion.div>
+            <span className="eyebrow">Back to top</span>
+            <ArrowUp size={16} className="transition-transform duration-300 group-hover:-translate-y-1" />
+          </button>
         </div>
 
-        {/* Copyright */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-12 border-t border-slate-300/60 pt-8 text-center dark:border-white/5"
-        >
-          <p className="flex items-center justify-center gap-1 text-sm text-slate-600 dark:text-slate-500">
-            {footerData.copyright}
-          </p>
-        </motion.div>
+        <div className="flex flex-col gap-2 border-t border-paper/25 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <p className="eyebrow text-paper/40">{footerData.copyright}</p>
+          <p className="eyebrow text-paper/40">Karachi, Pakistan · Available worldwide</p>
+        </div>
       </div>
     </footer>
-  );
+  )
 }

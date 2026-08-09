@@ -1,3 +1,4 @@
+import Masthead from '@/components/Masthead'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import TechStack from '@/components/TechStack'
@@ -9,15 +10,18 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
-      <Hero />
-      <About />
-      <TechStack />
-      <Experience />
-      <Projects />
-      <CurrentlySection />
-      <Contact />
+    <>
+      <Masthead />
+      <main>
+        <Hero />
+        <About />
+        <TechStack />
+        <Experience />
+        <Projects />
+        <CurrentlySection />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

@@ -1,123 +1,56 @@
-'use client'
-
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { Briefcase, Calendar } from 'lucide-react'
 import { experienceData } from '@/lib/data'
+import Reveal from './ui/Reveal'
+import SectionHeader from './ui/SectionHeader'
 
 export default function Experience() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start']
-  })
-
-  const lineHeight = useTransform(scrollYProgress, [0, 0.5], ['0%', '100%'])
-
   return (
-    <section id="experience" className="py-20 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">
-            My Journey
-          </span>
-          <h2 className="mt-4 text-4xl font-bold font-heading text-slate-900 dark:text-white md:text-5xl">
-            Work <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
-            Professional experience building scalable applications and leading development teams
-          </p>
-        </motion.div>
+    <section id="experience" className="wrap scroll-mt-24 py-20 md:py-28">
+      <SectionHeader
+        index="03"
+        label="Dispatches"
+        title="Experience"
+        kicker="A record of roles, teams, and things shipped."
+      />
 
-        {/* Timeline */}
-        <div ref={containerRef} className="relative">
-          {/* Timeline Line */}
-          <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-slate-300 dark:bg-white/10 md:left-1/2 md:-translate-x-1/2">
-            <motion.div
-              style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-cyan-400 to-blue-500"
-            />
-          </div>
+      <div className="border-t-2 border-ink">
+        {experienceData.map((exp, i) => (
+          <Reveal
+            as="article"
+            key={exp.company}
+            delay={i * 0.05}
+            className="grid grid-cols-1 gap-6 border-b border-ink py-8 md:grid-cols-12 md:gap-8 md:py-10"
+          >
+            {/* Dateline column */}
+            <div className="md:col-span-4">
+              <div className="flex items-center gap-3">
+                <span className="font-display text-4xl font-extrabold leading-none tracking-mega text-accent">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="chip border-ink">{exp.type}</span>
+              </div>
+              <p className="eyebrow mt-4 text-ink-soft">{exp.period}</p>
+              <h3 className="mt-2 font-display text-2xl font-extrabold leading-tight tracking-mega md:text-3xl">
+                {exp.company}
+              </h3>
+              <p className="mt-1 text-lg italic text-ink-soft">{exp.role}</p>
+            </div>
 
-          {/* Experience Items */}
-          <div className="space-y-12">
-            {experienceData.map((exp, index) => (
-              <motion.div
-                key={exp.company}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`relative flex flex-col md:flex-row ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div
-                  className="absolute left-4 z-10 h-4 w-4 rounded-full border-4 bg-cyan-400 shadow-lg shadow-cyan-400/50 md:left-1/2 md:-translate-x-1/2"
-                  style={{ borderColor: 'var(--bg-color)' }}
-                />
-
-                {/* Content */}
-                <div className="pl-12 md:pl-0 md:w-1/2 md:px-12">
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="glass-card-hover p-6 md:p-8"
+            {/* Highlights column — set in two editorial columns on desktop */}
+            <div className="md:col-span-8">
+              <ul className="space-y-3 md:columns-2 md:gap-8 md:space-y-0">
+                {exp.highlights.map((h, hi) => (
+                  <li
+                    key={hi}
+                    className="mb-3 flex gap-3 break-inside-avoid text-[1.05rem] leading-relaxed"
                   >
-                    {/* Header */}
-                    <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-xs font-semibold">
-                        {exp.type}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white md:text-2xl">
-                      {exp.role}
-                    </h3>
-
-                    <div className="mt-2 flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
-                      <span className="flex items-center gap-1.5">
-                        <Briefcase size={14} className="text-cyan-400" />
-                        {exp.company}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Calendar size={14} className="text-cyan-400" />
-                        {exp.period}
-                      </span>
-                    </div>
-
-                    {/* Highlights */}
-                    <ul className="mt-6 space-y-3">
-                      {exp.highlights.map((highlight, hIndex) => (
-                        <motion.li
-                          key={hIndex}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + hIndex * 0.1 }}
-                          className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400"
-                        >
-                          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                          {highlight}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                </div>
-
-                {/* Empty space for alternating layout */}
-                <div className="hidden md:block md:w-1/2" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                    <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-accent" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   )
