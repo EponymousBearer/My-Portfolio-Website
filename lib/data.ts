@@ -37,12 +37,12 @@ export const heroData = {
 
 // About Section
 export const aboutData = {
-  bio: 'Full-stack developer working with the MERN stack and Next.js since 2024, with hands-on experience shipping production web applications across e-commerce, SaaS, food delivery, and healthcare. Strong in REST API design, SQL/NoSQL data modeling, authentication, and payments — a final-year Software Engineering student (3.83 CGPA) and Certified Cloud Applied Generative AI Engineer, currently building a multi-tenant client-delivery platform in a remote engineering role.',
+  bio: 'Full-stack developer working with the MERN stack and Next.js since 2024, with hands-on experience shipping production web applications across e-commerce, SaaS, food delivery, and healthcare. Strong in REST API design, SQL/NoSQL data modeling, authentication, and payments — a Software Engineering graduate (3.81 CGPA) and Certified Cloud Applied Generative AI Engineer, currently building a multi-tenant client-delivery platform in a remote engineering role.',
   stats: [
     { value: 10, suffix: '+', label: 'Projects' },
     { value: 2, suffix: '+', label: 'Years' },
     { value: 15, suffix: '+', label: 'Technologies' },
-    { value: 3.83, suffix: '', label: 'CGPA' }
+    { value: 3.81, suffix: '', label: 'CGPA' }
   ]
 } as const
 
@@ -179,6 +179,20 @@ export const projectsData: Project[] = [
     stack: ['React', 'Tailwind CSS', 'REST APIs'],
     tags: ['Frontend', 'API Integration', 'Awarded'],
     liveUrl: 'https://quran-player-adnan.netlify.app/'
+  },
+  {
+    name: 'NIJ Web Solution',
+    description: 'Company website and business solution platform with clean responsive pages and a service-focused information architecture.',
+    stack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+    tags: ['Business Site', 'Frontend', 'Responsive'],
+    liveUrl: 'https://nijwebsolution.vercel.app/'
+  },
+  {
+    name: 'Appointment System',
+    description: 'Appointment booking and management platform built for operational workflows with efficient scheduling and dashboard views.',
+    stack: ['Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    tags: ['Business App', 'Scheduling', 'Dashboard'],
+    liveUrl: 'https://appointment.bizneedle.xyz/'
   }
 ]
 
