@@ -31,7 +31,7 @@ const jetbrains = JetBrains_Mono({
 
 const TITLE = 'Muhammad Adnan | Full Stack + AI Engineer & Technical SEO'
 const DESCRIPTION =
-  'I build SaaS platforms, e-commerce stores and AI web apps for founders and agencies — shipped on deadline, fast, and findable on Google.'
+  'Full Stack + AI Engineer for SaaS founders & agencies in the US, UK, Canada and UAE. I build SaaS, e-commerce and AI web apps that ship on deadline, load fast and get found on Google.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { servicesData, auditOffer, personalInfo } from '@/lib/data'
 import Reveal from './ui/Reveal'
 import SectionHeader from './ui/SectionHeader'
@@ -9,7 +9,7 @@ export default function Services() {
       <SectionHeader
         index="01"
         label="Services"
-        title="What I build"
+        title="What I build for you"
         kicker="Four ways I help founders and agencies ship — and one fixed-price way to start."
       />
 
@@ -27,15 +27,7 @@ export default function Services() {
                 {service.title}
               </h3>
             </div>
-            <p className="mt-3 text-lg italic text-ink-soft">{service.summary}</p>
-            <ul className="mt-5 space-y-2">
-              {service.points.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-[1.02rem] leading-snug">
-                  <Check size={16} className="mt-1 flex-shrink-0 text-accent" aria-hidden />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">{service.description}</p>
           </Reveal>
         ))}
       </div>
@@ -50,16 +42,8 @@ export default function Services() {
                 {auditOffer.title}
               </h3>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-paper/75">
-                {auditOffer.summary}
+                {auditOffer.description}
               </p>
-              <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
-                {auditOffer.points.map((point) => (
-                  <li key={point} className="flex items-center gap-2 text-paper/90">
-                    <Check size={16} className="flex-shrink-0 text-accent" aria-hidden />
-                    <span className="eyebrow text-paper/90">{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
             <div className="md:col-span-4 md:text-right">
               <a
