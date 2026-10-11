@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google'
 import { SITE_URL } from '@/lib/site'
 import { siteJsonLd } from '@/lib/jsonld'
+import Analytics from '@/components/Analytics'
 import './globals.css'
 
 const bricolage = Bricolage_Grotesque({
@@ -81,6 +82,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   )

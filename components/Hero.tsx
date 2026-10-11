@@ -3,7 +3,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight, FileText, MapPin } from 'lucide-react'
 import { heroData, personalInfo, techStackData } from '@/lib/data'
-import myselfImage from '@/app/myself.png'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const [firstName, ...restName] = personalInfo.name.split(' ')
@@ -113,11 +112,17 @@ export default function Hero() {
             <motion.div {...rise(0.38)} className="md:col-span-5">
               <figure className="relative">
                 <div className="relative aspect-[4/5] max-w-[280px] overflow-hidden border border-ink bg-paper-2 md:ml-auto">
-                  <img
-                    src={myselfImage.src}
-                    alt={`Portrait of ${personalInfo.name}`}
-                    className="halftone h-full w-full object-cover"
-                  />
+                  <picture>
+                    <source srcSet="/myself.webp" type="image/webp" />
+                    <img
+                      src="/myself.jpg"
+                      alt={`Portrait of ${personalInfo.name}, Full Stack and AI Engineer`}
+                      width={600}
+                      height={901}
+                      fetchPriority="high"
+                      className="halftone h-full w-full object-cover"
+                    />
+                  </picture>
                 </div>
                 <figcaption className="eyebrow mt-2 max-w-[280px] text-ink-soft md:ml-auto md:text-right">
                   Fig. 1 — {personalInfo.name}, {personalInfo.location}
