@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Newsreader, JetBrains_Mono } from 'next/font/google'
+import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const bricolage = Bricolage_Grotesque({
@@ -22,7 +23,7 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portfolio-orpin-nu-27.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: 'Muhammad Adnan — Full-Stack Developer',
   description:
     'The portfolio of Muhammad Adnan, a full-stack developer in Karachi building scalable web applications with the MERN stack, Next.js, and modern cloud technologies.',

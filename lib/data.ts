@@ -4,7 +4,7 @@ export const personalInfo = {
   role: 'Full-Stack Developer',
   location: 'Karachi, Pakistan',
   email: 'adnasir607@gmail.com',
-  linkedin: 'linkedin.com/in/muhammadadnan',
+  linkedin: 'www.linkedin.com/in/muhammadadnan-ai',
   github: 'github.com/EponymousBearer',
   logo: 'MA'
 } as const
@@ -232,12 +232,13 @@ export const currentlyData = {
 // Contact Section
 export const contactData = {
   email: 'adnasir607@gmail.com',
-  linkedin: 'linkedin.com/in/muhammadadnan',
+  linkedin: 'www.linkedin.com/in/muhammadadnan-ai',
   location: 'Karachi, Pakistan'
 } as const
 
 // Footer
 export const footerData = {
-  copyright: `© ${new Date().getFullYear()} Muhammad Adnan. All rights reserved.`,
+  // Static year keeps the statically-exported HTML deterministic across rebuilds.
+  copyright: '© 2026 Muhammad Adnan. All rights reserved.',
   tagline: 'Always willing to collab'
 } as const

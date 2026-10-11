@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Loader2, Check, AlertTriangle } from 'lucide-react'
 import { contactData } from '@/lib/data'
 
@@ -18,6 +18,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<Status>('idle')
   const [serverMsg, setServerMsg] = useState('')
+  const honeypotRef = useRef<HTMLInputElement>(null)
 
   const validateField = (name: keyof typeof values, value: string): string | undefined => {
     if (name === 'name' && value.trim().length < 2) return 'Please enter your name.'
@@ -50,6 +51,15 @@ export default function ContactForm() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Honeypot: real users never tick this hidden field. If it's set, a bot
+    // filled it — show success without sending so the bot gets no signal.
+    if (honeypotRef.current?.checked) {
+      setStatus('success')
+      setServerMsg("Message sent — thanks. I'll be in touch shortly.")
+      return
+    }
+
     if (!validateAll()) {
       // Focus the first invalid field for keyboard/SR users
       const first = (['name', 'email', 'message'] as const).find((k) => validateField(k, values[k]))
@@ -72,6 +82,7 @@ export default function ContactForm() {
           access_key: ACCESS_KEY,
           subject: `Portfolio enquiry from ${values.name}`,
           from_name: 'Portfolio Website',
+          botcheck: false,
           name: values.name,
           email: values.email,
           message: values.message
@@ -173,6 +184,7 @@ export default function ContactForm() {
 
       {/* Honeypot (spam trap) — hidden from users */}
       <input
+        ref={honeypotRef}
         type="checkbox"
         name="botcheck"
         tabIndex={-1}
