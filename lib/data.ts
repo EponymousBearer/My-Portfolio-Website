@@ -42,7 +42,7 @@ export const heroData = {
   availabilityLabel: 'Available for projects · US / UK / Canada / UAE',
   available: true,
   ctaPrimary: 'Book a free 30-min call',
-  ctaSecondary: 'See case studies'
+  ctaSecondary: 'View Projects'
 } as const
 
 // About Section — written from a prospective client's point of view.
@@ -60,50 +60,29 @@ export const aboutData = {
 // Services Section
 export interface Service {
   title: string
-  summary: string
-  points: string[]
+  description: string
 }
 
 export const servicesData: Service[] = [
   {
-    title: 'SaaS platforms & MVPs',
-    summary: 'Production SaaS from first commit to paying users.',
-    points: [
-      'Multi-tenant architecture',
-      'Auth & role-based access',
-      'Stripe subscriptions',
-      'Admin dashboards'
-    ]
+    title: 'SaaS Platforms & MVPs',
+    description:
+      'Multi-tenant architecture, auth and roles, Stripe subscriptions and admin dashboards, built to scale past launch.'
   },
   {
-    title: 'E-commerce',
-    summary: 'Fast storefronts that convert on mobile.',
-    points: [
-      'Next.js & headless Shopify storefronts',
-      'Stripe checkout',
-      'CMS-driven catalogs',
-      'Multi-vendor marketplaces'
-    ]
+    title: 'E-Commerce',
+    description:
+      'Fast Next.js and headless Shopify storefronts, Stripe checkout, CMS catalogs and multi-vendor marketplaces.'
   },
   {
-    title: 'AI integrations',
-    summary: 'Real AI features inside real products.',
-    points: [
-      'ML models served via FastAPI',
-      'AI features inside existing products',
-      'n8n & agentic automations',
-      'Generative AI workflows'
-    ]
+    title: 'AI Integrations',
+    description:
+      'ML models served through FastAPI, AI features inside your product, and n8n/agentic automations that remove manual work.'
   },
   {
-    title: 'Technical SEO & performance',
-    summary: 'Make the site fast — and findable.',
-    points: [
-      'Core Web Vitals',
-      'SSR / SSG rendering',
-      'Structured data & crawl/indexing fixes',
-      'AI-search visibility'
-    ]
+    title: 'Technical SEO & Performance',
+    description:
+      'Core Web Vitals, server rendering, structured data and indexing fixes, so your site gets found on Google and in AI search.'
   }
 ]
 
@@ -111,9 +90,7 @@ export const servicesData: Service[] = [
 export const auditOffer = {
   tag: 'Entry offer',
   title: 'Next.js Speed + Technical SEO Audit',
-  summary:
-    'A fixed-price audit of your Next.js site: I find what is slowing it down and keeping it out of search, then hand you a Loom walkthrough and a prioritized fix list.',
-  points: ['5-day turnaround', 'Loom walkthrough', 'Prioritized fix list'],
+  description: '5-day turnaround, Loom walkthrough and a prioritized fix list.',
   cta: 'Book a call'
 } as const
 
@@ -220,96 +197,123 @@ export const experienceData: Experience[] = [
   }
 ]
 
-// Case Studies — lead work, framed Problem → Built → Result.
+// ────────────────────────────────────────────────────────────────────────────
+// Case Studies
+// To add or edit a case study, edit the `caseStudies` array below. The whole
+// Case Studies section hides automatically when the array is empty.
+//
+// Each entry has:
+//   title      — the project name                              (required)
+//   type       — client / type, e.g. 'SaaS client · US'        (required)
+//   problem    — the problem in one or two sentences           (required)
+//   whatIBuilt — what you built, one or two sentences          (required)
+//   results    — outcomes, as a list of short bullet strings   (required)
+//   stack      — technology tags                               (required)
+//   link       — public URL, if any                            (optional)
+//   linkLabel  — label for the link, e.g. 'View live'          (optional)
+//   image      — path under /public, e.g. '/work/foo.png'      (optional)
+//   slug       — if set, also builds a /work/<slug> page and
+//                lists it in the sitemap                        (optional)
+//   private / researchPrototype — show the matching badge       (optional)
+//
+// Commented example — copy this shape for a new entry:
+// {
+//   title: 'Project Name',
+//   type: 'SaaS client · US',
+//   problem: 'What was broken or missing before you started.',
+//   whatIBuilt: 'What you shipped, in one or two plain sentences.',
+//   results: ['Outcome one', 'Outcome two', 'Outcome three'],
+//   stack: ['Next.js', 'PostgreSQL', 'Stripe'],
+//   link: 'https://example.com',
+//   linkLabel: 'View live',
+//   image: '/work/project-name.png'
+// },
+// ────────────────────────────────────────────────────────────────────────────
 export interface CaseStudy {
-  name: string
-  slug?: string
-  kind: string
+  title: string
+  type: string
   problem: string
-  built: string
-  result: string
+  whatIBuilt: string
+  results: string[]
   stack: string[]
-  tags: string[]
-  liveUrl?: string
-  liveLabel?: string
+  link?: string
+  linkLabel?: string
+  image?: string
+  slug?: string
   private?: boolean
   researchPrototype?: boolean
-  featured?: boolean
 }
 
 export const caseStudies: CaseStudy[] = [
   {
-    name: 'texttoolsai.app',
-    slug: 'texttoolsai-seo',
-    kind: 'Technical SEO',
+    title: 'texttoolsai.app',
+    type: 'My own product · Technical SEO',
     problem:
       'A brand-new product with no backlinks, no budget, and no search presence needed to earn organic traffic from scratch.',
-    built:
+    whatIBuilt:
       'I built and SEO’d it solo: a topic-hub structure with deep internal linking, content written for real search queries, and aggressive Core Web Vitals work.',
-    result:
-      'Average Google position moved 52 → 17 (May → Oct 2026, Search Console), with 84 pages averaging a top-10 position and 1,836 impressions in Google’s AI search features. Cited in AI answers by ChatGPT, Gemini, Perplexity and Google AI Mode (Ahrefs). PageSpeed 100 desktop / 93 mobile, SEO 100.',
+    results: [
+      'Average Google position moved 52 → 17 (May → Oct 2026, Search Console)',
+      '84 pages averaging a top-10 position; 1,836 impressions in Google’s AI search features',
+      'Cited in AI answers by ChatGPT, Gemini, Perplexity and Google AI Mode (Ahrefs)',
+      'PageSpeed 100 desktop / 93 mobile, SEO 100'
+    ],
     stack: ['Next.js', 'Technical SEO', 'Core Web Vitals', 'Schema'],
-    tags: ['Technical SEO'],
-    liveUrl: 'https://texttoolsai.app',
-    liveLabel: 'Visit site',
-    featured: true
+    link: 'https://texttoolsai.app',
+    linkLabel: 'Visit site',
+    slug: 'texttoolsai-seo'
   },
   {
-    name: 'Aitek Client Portal',
-    slug: 'aitek-client-portal',
-    kind: 'SaaS · Multi-tenant',
+    title: 'Aitek Client Portal',
+    type: 'US software house · SaaS',
     problem:
       'A US software house needed one platform to onboard clients and run delivery end-to-end, instead of scattered docs and email.',
-    built:
+    whatIBuilt:
       'A multi-tenant delivery platform (Next.js 14 + NestJS in a Turborepo) with role-based access across Admin, PM, Developer and Client, KYC onboarding, a questionnaire engine, milestones, deliverables, e-signatures, and dev/prod CI/CD.',
-    result:
-      'Used daily by the software house’s clients, with strict per-company tenant isolation. Private project — no public link.',
+    results: [
+      'Used daily by the software house’s clients',
+      'Strict per-company tenant isolation across every role',
+      'Private project — no public link'
+    ],
     stack: ['Next.js 14', 'NestJS', 'Turborepo', 'PostgreSQL', 'Prisma', 'Docker'],
-    tags: ['SaaS', 'Multi-Tenant'],
     private: true,
-    featured: true
+    slug: 'aitek-client-portal'
   },
   {
-    name: 'Quiquiq',
-    kind: 'E-commerce · Delivery',
+    title: 'Quiquiq',
+    type: 'Client · Food delivery',
     problem:
       'Launch a complete food-delivery platform — ordering, tracking and payments — against a hard 12-week deadline.',
-    built:
+    whatIBuilt:
       'A full delivery platform with real-time order tracking and integrated payments, built on Next.js, Node.js and PostgreSQL.',
-    result: 'Shipped inside the 12-week deadline.',
+    results: ['Shipped inside the 12-week deadline', 'Real-time order tracking and integrated payments'],
     stack: ['Next.js', 'Node.js', 'PostgreSQL'],
-    tags: ['E-Commerce', 'Payments'],
-    private: true,
-    featured: true
+    private: true
   },
   {
-    name: 'REHASH',
-    kind: 'E-commerce · Marketplace',
+    title: 'REHASH',
+    type: 'Canadian client · Marketplace',
     problem:
       'A Canadian client wanted a reverse e-commerce marketplace where sellers get instant, condition-based quotes.',
-    built:
+    whatIBuilt:
       'A dynamic pricing engine with a guided condition-assessment flow, plus separate admin and vendor panels with role-based access (MERN).',
-    result: 'Live marketplace with working vendor and admin operations.',
+    results: ['Live marketplace with working vendor and admin operations', 'Instant, condition-based pricing for sellers'],
     stack: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB'],
-    tags: ['Marketplace', 'Role-Based Auth'],
-    liveUrl: 'https://rehash-project-frontend.vercel.app/',
-    liveLabel: 'View live',
-    featured: true
+    link: 'https://rehash-project-frontend.vercel.app/',
+    linkLabel: 'View live'
   },
   {
-    name: 'AURA',
-    kind: 'AI · Research prototype',
+    title: 'AURA',
+    type: 'Final-year project · AI research',
     problem:
       'Antibiotic choices should reflect local resistance patterns, but that data rarely reaches the point of decision.',
-    built:
+    whatIBuilt:
       'A live ML web app that recommends antibiotics from local resistance patterns, with explainable predictions (Python, scikit-learn, FastAPI, Docker, SHAP, Next.js). Built as my final-year project.',
-    result: 'A working research prototype with a public demo. Not a clinical product.',
+    results: ['Working research prototype with a public demo', 'Explainable recommendations via SHAP'],
     stack: ['Python', 'scikit-learn', 'FastAPI', 'SHAP', 'Docker', 'Next.js'],
-    tags: ['AI / ML', 'Research'],
-    liveUrl: 'https://aura-cdss.vercel.app',
-    liveLabel: 'View demo',
-    researchPrototype: true,
-    featured: true
+    link: 'https://aura-cdss.vercel.app',
+    linkLabel: 'View demo',
+    researchPrototype: true
   }
 ]
 
@@ -431,8 +435,8 @@ export const contactData = {
   calendly: CALENDLY_URL,
   linkedin: 'www.linkedin.com/in/muhammadadnan-ai',
   location: 'Karachi, Pakistan',
-  availability: 'Mon–Fri, 2 PM – 10 PM PKT',
-  availabilityNote: 'Overlaps UAE & UK afternoons and US/Canada East mornings.',
+  availability: 'Mon–Fri, 2 PM–10 PM PKT',
+  availabilityNote: 'overlaps UK afternoon and US East morning',
   heading: 'Have a product to build, a slow site to fix, or a deadline to hit?'
 } as const
 

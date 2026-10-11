@@ -29,7 +29,7 @@ export default function Hero() {
         {/* Masthead nameplate */}
         <div className="relative pt-6 md:pt-10">
           <p className="hero-fade eyebrow mb-3 text-accent md:mb-5" style={{ animationDelay: '0.08s' }}>
-            {heroData.role} for SaaS founders &amp; agencies
+            Full Stack + AI Engineer · Technical SEO
           </p>
 
           <h1 className="font-display font-extrabold leading-[0.82] tracking-mega">
