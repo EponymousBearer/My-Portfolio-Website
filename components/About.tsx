@@ -5,7 +5,7 @@ import SectionHeader from './ui/SectionHeader'
 export default function About() {
   return (
     <section id="about" className="wrap scroll-mt-24 py-20 md:py-28">
-      <SectionHeader index="01" label="Profile" title="About" />
+      <SectionHeader index="04" label="Profile" title="About" />
 
       <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
         <Reveal className="md:col-span-7">
@@ -28,11 +28,10 @@ export default function About() {
                     i < aboutData.stats.length - 2 ? 'border-b border-ink' : ''
                   }`}
                 >
-                  <dd className="font-display text-5xl font-extrabold leading-none tracking-mega text-accent">
+                  <dd className="font-display text-4xl font-extrabold leading-none tracking-mega text-accent">
                     {stat.value}
-                    <span className="text-ink">{stat.suffix}</span>
                   </dd>
-                  <dt className="eyebrow mt-2 text-ink-soft">{stat.label}</dt>
+                  <dt className="eyebrow mt-2 leading-snug text-ink-soft">{stat.label}</dt>
                 </div>
               ))}
             </dl>

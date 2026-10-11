@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDownRight, FileText, MapPin } from 'lucide-react'
+import { ArrowUpRight, FileText, MapPin } from 'lucide-react'
 import { heroData, personalInfo, techStackData } from '@/lib/data'
 import myselfImage from '@/app/myself.png'
 
@@ -38,14 +38,14 @@ export default function Hero() {
             {heroData.available && (
               <span className="inline-block h-2 w-2 animate-blink rounded-full bg-accent" />
             )}
-            {heroData.available ? 'Available for hire' : heroData.volume}
+            {heroData.availabilityLabel}
           </span>
         </motion.div>
 
         {/* Masthead nameplate */}
         <div className="relative pt-6 md:pt-10">
           <motion.p {...rise(0.08)} className="eyebrow mb-3 text-accent md:mb-5">
-            {personalInfo.role} — Portfolio
+            {heroData.role} for SaaS founders &amp; agencies
           </motion.p>
 
           <h1 className="font-display font-extrabold leading-[0.82] tracking-mega">
@@ -76,24 +76,23 @@ export default function Hero() {
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href="#projects"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
-                  }}
+                  href={personalInfo.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-analytics="calendly-hero"
                   className="group inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3 font-display text-base font-bold text-paper transition-colors hover:bg-accent hover:border-accent"
                 >
                   {heroData.ctaPrimary}
-                  <ArrowDownRight
+                  <ArrowUpRight
                     size={18}
-                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </a>
                 <a
-                  href="#contact"
+                  href="#work"
                   onClick={(e) => {
                     e.preventDefault()
-                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
+                    document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })
                   }}
                   className="font-display text-base font-bold link-anim"
                 >

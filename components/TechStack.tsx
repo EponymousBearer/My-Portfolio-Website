@@ -7,10 +7,10 @@ export default function TechStack() {
     <section id="techstack" className="scroll-mt-24 border-y border-ink bg-paper-2 py-20 md:py-28">
       <div className="wrap">
         <SectionHeader
-          index="02"
+          index="06"
           label="Capabilities"
           title="Tech Stack"
-          kicker="The tools used to ship scalable, performant products end to end."
+          kicker="The tools I use to ship fast, findable products end to end."
         />
 
         {/* Classified index with dotted leaders */}

@@ -15,28 +15,50 @@ export default function Contact() {
       <div className="wrap">
         <Reveal>
           <div className="flex items-center gap-4">
-            <span className="eyebrow text-accent">§ 06</span>
+            <span className="eyebrow text-accent">§ 09</span>
             <span className="h-px flex-1 bg-paper/40" />
             <span className="eyebrow text-paper/60">Correspondence</span>
           </div>
         </Reveal>
 
         <Reveal delay={0.05}>
-          <h2 className="mt-8 font-display text-[14vw] font-extrabold leading-[0.86] tracking-mega sm:text-7xl md:text-8xl">
-            Let&apos;s build
-            <br />
-            <span
-              style={{ WebkitTextStroke: '2px var(--paper)', color: 'transparent' }}
-            >
-              something.
-            </span>
+          <h2 className="mt-8 max-w-4xl font-display text-[11vw] font-extrabold leading-[0.9] tracking-mega sm:text-5xl md:text-6xl">
+            {contactData.heading}
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mt-8 max-w-xl text-xl leading-relaxed text-paper/70">
-            Have a role, a project, or an idea worth shipping? I&apos;m{' '}
-            <span className="text-accent">available for hire</span> and reply fast.
+            Book a free 30-minute call and tell me what you&apos;re building. If a call is too soon,
+            email works too.
+          </p>
+        </Reveal>
+
+        {/* Primary actions */}
+        <Reveal delay={0.12}>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={contactData.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics="calendly-contact"
+              className="group inline-flex items-center gap-2 border border-accent bg-accent px-6 py-3.5 font-display text-base font-bold text-paper transition-colors hover:bg-transparent hover:text-accent"
+            >
+              Book a free 30-min call
+              <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href={`mailto:${contactData.email}`}
+              className="font-display text-base font-bold text-paper link-anim"
+            >
+              Or email me
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.16}>
+          <p className="eyebrow mt-6 text-paper/55">
+            {contactData.availability} · {contactData.availabilityNote}
           </p>
         </Reveal>
 
@@ -66,7 +88,7 @@ export default function Contact() {
             ))}
             <Reveal delay={0.3}>
               <p className="eyebrow mt-8 text-paper/50">
-                Based in {contactData.location} — working remotely, worldwide.
+                Based in {contactData.location} — working remotely with {personalInfo.regions} teams.
               </p>
             </Reveal>
           </div>

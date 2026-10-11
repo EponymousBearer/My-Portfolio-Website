@@ -6,10 +6,10 @@ export default function Experience() {
   return (
     <section id="experience" className="wrap scroll-mt-24 py-20 md:py-28">
       <SectionHeader
-        index="03"
+        index="05"
         label="Dispatches"
         title="Experience"
-        kicker="A record of roles, teams, and things shipped."
+        kicker="Where the results above were earned."
       />
 
       <div className="border-t-2 border-ink">

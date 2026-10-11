@@ -53,7 +53,7 @@ export default function Masthead() {
           <span className="font-display text-lg font-extrabold leading-none tracking-mega">
             {personalInfo.name}
           </span>
-          <span className="eyebrow hidden text-ink-soft sm:inline">/ FULL-STACK</span>
+          <span className="eyebrow hidden text-ink-soft sm:inline">/ FULL STACK + AI</span>
         </button>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
@@ -82,14 +82,13 @@ export default function Masthead() {
             Résumé
           </a>
           <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              go('#contact')
-            }}
+            href={personalInfo.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics="calendly-nav"
             className="eyebrow border border-ink bg-ink px-3 py-1.5 text-paper transition-colors hover:bg-accent hover:border-accent"
           >
-            Hire me
+            Book a call
           </a>
         </nav>
 
@@ -125,12 +124,16 @@ export default function Masthead() {
             <span className="eyebrow text-ink-soft">↓</span>
             <span className="font-display text-xl font-bold">Résumé</span>
           </a>
-          <button
-            onClick={() => go('#contact')}
+          <a
+            href={personalInfo.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics="calendly-nav-mobile"
+            onClick={() => setMenuOpen(false)}
             className="mt-2 border border-ink bg-ink px-4 py-3 text-center font-display text-lg font-bold text-paper"
           >
-            Hire me →
-          </button>
+            Book a call →
+          </a>
         </nav>
       )}
     </header>
