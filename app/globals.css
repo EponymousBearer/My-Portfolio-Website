@@ -159,6 +159,63 @@
     filter: grayscale(1) contrast(1.18) brightness(1.02);
     mix-blend-mode: multiply;
   }
+
+  /* Long-form case-study prose */
+  .prose-editorial h2 {
+    font-family: var(--font-bricolage), sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    font-size: 1.9rem;
+    line-height: 1.05;
+    margin-top: 2.75rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--ink);
+  }
+  .prose-editorial h2:first-child {
+    margin-top: 0;
+  }
+  .prose-editorial p {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-top: 1.1rem;
+  }
+  .prose-editorial ul {
+    margin-top: 1.1rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .prose-editorial li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 1.08rem;
+    line-height: 1.6;
+  }
+  .prose-editorial li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: var(--accent);
+  }
+  .prose-editorial strong {
+    font-weight: 700;
+  }
+
+  /* Metric strip for case-study pages */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--ink);
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .metric-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
 }
 
 /* Respect reduced-motion — disable movement, keep content readable */

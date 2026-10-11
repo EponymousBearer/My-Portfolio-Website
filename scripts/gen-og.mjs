@@ -13,10 +13,10 @@ const FAM = 'Bricolage Grotesque'
 
 const NAME_TOP = 'MUHAMMAD'
 const NAME_BOTTOM = 'ADNAN'
-const ROLE = 'FULL-STACK MERN DEVELOPER — PORTFOLIO'
-const LOCATION = 'KARACHI, PAKISTAN'
-const DECK_1 = 'Shipping production web apps across e-commerce,'
-const DECK_2 = 'SaaS, food delivery &amp; healthcare — MERN + Next.js.'
+const ROLE = 'FULL STACK + AI ENGINEER — TECHNICAL SEO'
+const LOCATION = 'KARACHI · REMOTE · US / UK / CA / UAE'
+const DECK_1 = 'SaaS platforms, e-commerce stores &amp; AI web apps for'
+const DECK_2 = 'founders — shipped on deadline, fast &amp; found on Google.'
 
 // Faint blueprint grid lines every 40px
 let grid = ''
@@ -29,8 +29,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
 
   <!-- dateline -->
   <text x="72" y="78" font-family="${FAM}" font-weight="600" font-size="21" letter-spacing="4" fill="${MUTED}">${LOCATION}</text>
-  <circle cx="838" cy="71" r="7" fill="${ACCENT}"/>
-  <text x="856" y="78" font-family="${FAM}" font-weight="600" font-size="21" letter-spacing="3" fill="${ACCENT}">AVAILABLE FOR HIRE</text>
+  <circle cx="806" cy="71" r="7" fill="${ACCENT}"/>
+  <text x="824" y="78" font-family="${FAM}" font-weight="600" font-size="21" letter-spacing="3" fill="${ACCENT}">AVAILABLE FOR PROJECTS</text>
   <rect x="72" y="98" width="1056" height="4" fill="${INK}"/>
 
   <!-- role eyebrow -->
