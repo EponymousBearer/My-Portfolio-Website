@@ -11,17 +11,22 @@ const bricolage = Bricolage_Grotesque({
   display: 'swap'
 })
 
+// Body serif swaps in after the display font (Georgia is a close fallback),
+// so Bricolage — the LCP headline face — gets priority on the critical path.
 const newsreader = Newsreader({
   subsets: ['latin'],
   variable: '--font-newsreader',
-  style: ['normal', 'italic'],
-  display: 'swap'
+  display: 'swap',
+  preload: false
 })
 
+// Mono is only used for small eyebrow/label text, so it doesn't need to block
+// the critical path — let it swap in after the display/body fonts.
 const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains',
-  display: 'swap'
+  display: 'swap',
+  preload: false
 })
 
 const TITLE = 'Muhammad Adnan | Full Stack + AI Engineer & Technical SEO'
@@ -77,6 +82,9 @@ export default function RootLayout({
       className={`${bricolage.variable} ${newsreader.variable} ${jetbrains.variable}`}
     >
       <body className="font-serif antialiased">
+        <script
+          dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}

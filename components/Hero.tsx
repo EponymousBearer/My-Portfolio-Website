@@ -1,10 +1,6 @@
-'use client'
-
-import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight, FileText, MapPin } from 'lucide-react'
 import { heroData, personalInfo, techStackData } from '@/lib/data'
 
-const EASE = [0.22, 1, 0.36, 1] as const
 const [firstName, ...restName] = personalInfo.name.split(' ')
 const lastName = restName.join(' ')
 
@@ -12,22 +8,11 @@ const lastName = restName.join(' ')
 const ticker = techStackData.flatMap((c) => c.skills)
 
 export default function Hero() {
-  const reduce = useReducedMotion()
-
-  const rise = (delay: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 30 },
-    animate: reduce ? undefined : { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease: EASE }
-  })
-
   return (
     <section id="home" className="relative overflow-hidden">
       <div className="wrap pt-10 md:pt-16">
         {/* Dateline row */}
-        <motion.div
-          {...rise(0)}
-          className="flex flex-wrap items-center justify-between gap-y-2 border-b border-ink pb-3"
-        >
+        <div className="hero-fade flex flex-wrap items-center justify-between gap-y-2 border-b border-ink pb-3">
           <span className="eyebrow flex items-center gap-1.5 text-ink-soft">
             <MapPin size={12} strokeWidth={2.5} className="text-accent" />
             {personalInfo.location}
@@ -39,36 +24,33 @@ export default function Hero() {
             )}
             {heroData.availabilityLabel}
           </span>
-        </motion.div>
+        </div>
 
         {/* Masthead nameplate */}
         <div className="relative pt-6 md:pt-10">
-          <motion.p {...rise(0.08)} className="eyebrow mb-3 text-accent md:mb-5">
+          <p className="hero-fade eyebrow mb-3 text-accent md:mb-5" style={{ animationDelay: '0.08s' }}>
             {heroData.role} for SaaS founders &amp; agencies
-          </motion.p>
+          </p>
 
           <h1 className="font-display font-extrabold leading-[0.82] tracking-mega">
-            <motion.span
-              {...rise(0.14)}
-              className="block text-[16vw] sm:text-[15vw] md:text-[13vw] lg:text-[12rem]"
-            >
+            <span className="hero-rise block text-[16vw] sm:text-[15vw] md:text-[13vw] lg:text-[12rem]">
               {firstName}
-            </motion.span>
-            <motion.span
-              {...rise(0.22)}
-              className="block text-[16vw] text-accent sm:text-[15vw] md:text-[13vw] lg:text-[12rem]"
+            </span>
+            <span
+              className="hero-rise block text-[16vw] text-accent sm:text-[15vw] md:text-[13vw] lg:text-[12rem]"
               style={{
                 WebkitTextStroke: '2px var(--ink)',
-                color: 'transparent'
+                color: 'transparent',
+                animationDelay: '0.08s'
               }}
             >
               {lastName}
-            </motion.span>
+            </span>
           </h1>
 
           {/* Deck / standfirst + portrait, asymmetric */}
           <div className="mt-8 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-12 md:gap-10">
-            <motion.div {...rise(0.3)} className="md:col-span-7">
+            <div className="hero-fade md:col-span-7" style={{ animationDelay: '0.2s' }}>
               <p className="max-w-xl border-l-2 border-accent pl-5 text-lg leading-relaxed text-ink md:text-xl">
                 {heroData.deck}
               </p>
@@ -87,14 +69,7 @@ export default function Hero() {
                     className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </a>
-                <a
-                  href="#work"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className="font-display text-base font-bold link-anim"
-                >
+                <a href="#work" className="font-display text-base font-bold link-anim">
                   {heroData.ctaSecondary}
                 </a>
                 <a
@@ -107,9 +82,9 @@ export default function Hero() {
                   Résumé
                 </a>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div {...rise(0.38)} className="md:col-span-5">
+            <div className="hero-fade md:col-span-5" style={{ animationDelay: '0.28s' }}>
               <figure className="relative">
                 <div className="relative aspect-[4/5] max-w-[280px] overflow-hidden border border-ink bg-paper-2 md:ml-auto">
                   <picture>
@@ -128,7 +103,7 @@ export default function Hero() {
                   Fig. 1 — {personalInfo.name}, {personalInfo.location}
                 </figcaption>
               </figure>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

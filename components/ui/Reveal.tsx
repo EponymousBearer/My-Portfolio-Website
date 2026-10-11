@@ -1,37 +1,51 @@
 'use client'
 
-import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
-interface RevealProps extends Omit<HTMLMotionProps<'div'>, 'ref'> {
+interface RevealProps extends React.HTMLAttributes<HTMLElement> {
   delay?: number
-  y?: number
   as?: 'div' | 'section' | 'li' | 'article'
 }
 
-const EASE = [0.22, 1, 0.36, 1] as const
-
+// Lightweight scroll reveal using IntersectionObserver + CSS (no animation
+// library). The `.js` gate in globals.css keeps content fully visible when
+// JavaScript is unavailable, so the statically-rendered HTML stays readable.
 export default function Reveal({
   children,
   delay = 0,
-  y = 26,
-  className,
+  className = '',
   as = 'div',
   ...rest
 }: RevealProps) {
-  const reduce = useReducedMotion()
-  // motion[as] returns the correct element at runtime; cast keeps the div prop types.
-  const MotionTag = motion[as] as typeof motion.div
+  const ref = useRef<HTMLElement>(null)
+  const [shown, setShown] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShown(true)
+          io.disconnect()
+        }
+      },
+      { rootMargin: '0px 0px -70px 0px' }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  const Tag = as as React.ElementType
 
   return (
-    <MotionTag
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-70px' }}
-      transition={{ duration: 0.7, delay, ease: EASE }}
+    <Tag
+      ref={ref}
+      className={`reveal ${shown ? 'reveal-in' : ''} ${className}`.trim()}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
       {...rest}
     >
       {children}
-    </MotionTag>
+    </Tag>
   )
 }

@@ -160,6 +160,31 @@
     mix-blend-mode: multiply;
   }
 
+  /* Hero entrance — CSS-driven so it paints at first paint (no JS wait),
+     keeping LCP fast. The LCP headline uses hero-rise (stays opaque);
+     secondary elements use hero-fade. Disabled under reduced-motion below. */
+  .hero-fade {
+    opacity: 0;
+    animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-rise {
+    animation: heroRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Scroll reveal — only hides content when JS is available (.js gate),
+     so no-JS/crawler HTML stays fully visible. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js .reveal.reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
   /* Long-form case-study prose */
   .prose-editorial h2 {
     font-family: var(--font-bricolage), sans-serif;
@@ -218,6 +243,26 @@
   }
 }
 
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    transform: translateY(24px);
+  }
+  to {
+    transform: none;
+  }
+}
+
 /* Respect reduced-motion — disable movement, keep content readable */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -230,5 +275,11 @@
   }
   body {
     scroll-behavior: auto;
+  }
+  /* Show all reveal content instantly for reduced-motion users */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
