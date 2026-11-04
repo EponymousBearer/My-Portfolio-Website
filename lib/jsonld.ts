@@ -18,7 +18,10 @@ export const siteJsonLd = {
         '@type': 'CollegeOrUniversity',
         name: 'Mohammad Ali Jinnah University'
       },
+      worksFor: { '@type': 'Organization', name: 'Future Frame', url: 'https://www.futureframesolution.com' },
       knowsAbout: [
+        'AI speed-to-lead',
+        'AI lead response automation',
         'SaaS development',
         'E-commerce development',
         'AI integration',
@@ -41,6 +44,7 @@ export const siteJsonLd = {
       serviceType: [
         'SaaS platform development',
         'E-commerce development',
+        'AI speed-to-lead and lead response automation',
         'AI integration',
         'Technical SEO & performance'
       ],

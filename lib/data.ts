@@ -1,4 +1,4 @@
-import { CALENDLY_URL, EMAIL, GITHUB_URL, LINKEDIN_URL } from './site'
+import { CALENDLY_URL, EMAIL, FUTURE_FRAME_PRICING_URL, FUTURE_FRAME_URL, GITHUB_URL, LINKEDIN_URL } from './site'
 
 // Personal Information
 export const personalInfo = {
@@ -6,6 +6,7 @@ export const personalInfo = {
   role: 'Full Stack + AI Engineer',
   positioning: 'Full Stack + AI Engineer for SaaS founders & agencies',
   studio: 'Future Frame',
+  studioUrl: FUTURE_FRAME_URL,
   location: 'Karachi, Pakistan',
   regions: 'US · UK · Canada · UAE',
   email: EMAIL,
@@ -37,8 +38,9 @@ export const heroData = {
   role: 'Full Stack + AI Engineer',
   headlineLead: 'Full Stack + AI Engineer',
   headlineTail: 'for SaaS founders & agencies',
-  deck: 'I build SaaS platforms, e-commerce stores and AI-powered web apps that ship on deadline, load fast, and get found on Google.',
-  edition: 'SAAS · E-COMMERCE · AI · TECHNICAL SEO',
+  deck: 'I build SaaS platforms, e-commerce stores and AI-powered web apps that ship on deadline, load fast, and get found on Google. I also run Future Frame, where I build AI speed-to-lead assistants that contact new leads in under 60 seconds.',
+  studioNote: 'Founder of Future Frame',
+  edition: 'SAAS · E-COMMERCE · AI SPEED-TO-LEAD · TECHNICAL SEO',
   availabilityLabel: 'Available for projects · US / UK / Canada / UAE',
   available: true,
   ctaPrimary: 'Book a free 30-min call',
@@ -47,10 +49,11 @@ export const heroData = {
 
 // About Section — written from a prospective client's point of view.
 export const aboutData = {
-  bio: 'Working with me is straightforward. We start with a clear scope and fixed milestones, you see a working demo every week, and at handoff you own typed, documented code — not a black box. I work remotely from Karachi with afternoon overlap for US, UK, Canada and UAE teams, so feedback loops stay short and deadlines stay real.',
+  bio: 'I founded Future Frame, a small studio that builds AI speed-to-lead assistants for real estate and mortgage teams; this site is the person behind it. Working with me is straightforward. We start with a clear scope and fixed milestones, you see a working demo every week, and at handoff you own typed, documented code — not a black box. I work remotely from Karachi with afternoon overlap for US, UK, Canada and UAE teams, so feedback loops stay short and deadlines stay real.',
   // "By the numbers" — proof clients care about (see Source of truth).
   stats: [
-    { value: '52→17', label: 'Avg. Google position · texttoolsai.app' },
+    // TODO(verify): re-add avg position stat after GSC check
+    { value: '100', label: 'PageSpeed desktop · texttoolsai.app' },
     { value: '40%', label: 'Faster page loads' },
     { value: '50%', label: 'Faster time-to-market' },
     { value: '12 wk', label: 'Delivery deadline hit' }
@@ -64,6 +67,11 @@ export interface Service {
 }
 
 export const servicesData: Service[] = [
+  {
+    title: 'AI Speed-to-Lead Agent',
+    description:
+      'When a lead submits a web form, an AI assistant calls or WhatsApps them within about 60 seconds, qualifies them, books the appointment and logs it to your CRM, with human handoff. Built for real estate and mortgage teams through Future Frame.'
+  },
   {
     title: 'SaaS Platforms & MVPs',
     description:
@@ -86,13 +94,35 @@ export const servicesData: Service[] = [
   }
 ]
 
-// Entry offer — shown as a highlighted card. No price (book a call).
-export const auditOffer = {
-  tag: 'Entry offer',
-  title: 'Next.js Speed + Technical SEO Audit',
+// Entry offers — shown as highlighted cards. Founding-client pricing.
+export interface EntryOffer {
+  tag: string
+  title: string
+  price: string
+  description: string
+  cta: string
+  secondaryHref?: string
+  secondaryLabel?: string
+}
+
+export const pilotOffer: EntryOffer = {
+  tag: 'Founding-client pilot · first 3 clients',
+  title: '14-day AI Speed-to-Lead Pilot',
+  price: '$297',
+  description:
+    'Every lead contacted in under 60 seconds, or you get a full refund. Limited to the first 3 founding clients, delivered through Future Frame.',
+  cta: 'Book a free 30-min call',
+  secondaryHref: FUTURE_FRAME_PRICING_URL,
+  secondaryLabel: 'See Future Frame pricing'
+}
+
+export const auditOffer: EntryOffer = {
+  tag: 'Second entry option',
+  title: 'Next.js Speed + Technical SEO / AI-search Audit',
+  price: '$297 founding price',
   description: '5-day turnaround, Loom walkthrough and a prioritized fix list.',
-  cta: 'Book a call'
-} as const
+  cta: 'Book a free 30-min call'
+}
 
 // Tech Stack Section
 export interface TechCategory {
@@ -246,6 +276,23 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    title: 'AI Speed-to-Lead Agent',
+    type: 'Future Frame · Working demo',
+    problem:
+      'Most new leads go unanswered for hours. A 2026 Pied Piper study of 2,198 inquiries to 21 large real-estate brands found only 10% heard from an agent within an hour.',
+    whatIBuilt:
+      'A configurable end-to-end system: a lead submits a form, an AI calls or WhatsApps them in seconds, qualifies them with vertical-specific questions, books a meeting and saves the lead to the CRM. Built with a Next.js demo console, n8n workflows, Vapi voice, Twilio/Meta WhatsApp, a Groq LLM, Cal.com and HubSpot.',
+    results: [
+      'Working demo and internal pilot, not a client deployment. No client results yet.',
+      'Live end-to-end flow: form, voice or WhatsApp, qualification, booking, CRM record, human handoff',
+      '10 industry templates and a live event timeline in the demo console'
+    ],
+    stack: ['Next.js', 'n8n', 'Vapi', 'Twilio / Meta WhatsApp', 'Groq', 'Cal.com', 'HubSpot'],
+    link: 'https://console-adnan-projects.vercel.app',
+    linkLabel: 'Try the live demo',
+    slug: 'speed-to-lead'
+  },
+  {
     title: 'texttoolsai.app',
     type: 'My own product · Technical SEO',
     problem:
@@ -253,7 +300,7 @@ export const caseStudies: CaseStudy[] = [
     whatIBuilt:
       'I built and SEO’d it solo: a topic-hub structure with deep internal linking, content written for real search queries, and aggressive Core Web Vitals work.',
     results: [
-      'Average Google position moved 52 → 17 (May → Oct 2026, Search Console)',
+      // TODO(verify): re-add avg position stat after GSC check
       '84 pages averaging a top-10 position; 1,836 impressions in Google’s AI search features',
       'Cited in AI answers by ChatGPT, Gemini, Perplexity and Google AI Mode (Ahrefs)',
       'PageSpeed 100 desktop / 93 mobile, SEO 100'
@@ -390,6 +437,7 @@ export interface CurrentActivity {
   title: string
   description: string
   icon: string
+  href?: string
 }
 
 export const currentlyData = {
@@ -400,9 +448,10 @@ export const currentlyData = {
       icon: 'Briefcase'
     },
     {
-      title: 'Founding',
-      description: 'Future Frame — a small, focused development studio',
-      icon: 'Users'
+      title: 'Founding · Future Frame',
+      description: 'Future Frame, my studio, building AI speed-to-lead assistants for real estate and mortgage teams',
+      icon: 'Users',
+      href: FUTURE_FRAME_URL
     },
     {
       title: 'Writing',
@@ -411,7 +460,7 @@ export const currentlyData = {
     },
     {
       title: 'Ask me about',
-      description: 'SaaS, Next.js, AI integrations & technical SEO',
+      description: 'AI speed-to-lead, SaaS, Next.js, AI integrations & technical SEO',
       icon: 'MessageCircle'
     }
   ],
@@ -435,8 +484,8 @@ export const contactData = {
   calendly: CALENDLY_URL,
   linkedin: 'www.linkedin.com/in/muhammadadnan-ai',
   location: 'Karachi, Pakistan',
-  availability: 'Mon–Fri, 2 PM–10 PM PKT',
-  availabilityNote: 'overlaps UK afternoon and US East morning',
+  availability: 'Mon–Fri, 2 PM–8 PM PKT',
+  availabilityNote: 'overlaps the UK working day and US East early morning',
   heading: 'Have a product to build, a slow site to fix, or a deadline to hit?'
 } as const
 

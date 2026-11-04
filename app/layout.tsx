@@ -29,9 +29,9 @@ const jetbrains = JetBrains_Mono({
   preload: false
 })
 
-const TITLE = 'Muhammad Adnan | Full Stack + AI Engineer & Technical SEO'
+const TITLE = 'Muhammad Adnan | AI Speed-to-Lead, Full Stack & Technical SEO'
 const DESCRIPTION =
-  'Full Stack + AI Engineer for SaaS founders & agencies in the US, UK, Canada and UAE. I build SaaS, e-commerce and AI web apps that ship on deadline, load fast and get found on Google.'
+  'Full Stack + AI Engineer and founder of Future Frame. I build AI speed-to-lead assistants that respond to new leads in under 60 seconds, plus SaaS, e-commerce and AI web apps that ship on deadline, load fast and rank with technical SEO.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,6 +41,10 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
   keywords: [
+    'AI speed-to-lead',
+    'AI lead response',
+    'AI lead follow-up automation',
+    'Future Frame',
     'Full Stack Developer',
     'AI Engineer',
     'SaaS development',
@@ -61,7 +65,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'Muhammad Adnan',
     locale: 'en_US',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Muhammad Adnan — Full Stack + AI Engineer for SaaS founders & agencies' }]
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Muhammad Adnan — AI speed-to-lead, Full Stack + AI Engineer' }]
   },
   twitter: {
     card: 'summary_large_image',

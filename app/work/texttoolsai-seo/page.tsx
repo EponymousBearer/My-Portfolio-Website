@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site'
 
 const TITLE = 'texttoolsai.app — Technical SEO Case Study'
 const DESCRIPTION =
-  'How I took a brand-new product from average Google position 52 to 17 in five months — topic hubs, internal linking, content for real queries, and Core Web Vitals work.'
+  "How I built and SEO'd a brand-new product solo: topic hubs, internal linking, content for real queries, Core Web Vitals work, a PageSpeed 100 desktop score and citations in AI answers."
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -26,10 +26,11 @@ export const metadata: Metadata = {
 }
 
 const metrics = [
-  { value: '52→17', label: 'Avg. Google position' },
+  // TODO(verify): re-add avg position stat after GSC check
   { value: '84', label: 'Pages in the top 10' },
   { value: '1,836', label: 'AI-search impressions' },
-  { value: '100', label: 'PageSpeed (desktop)' }
+  { value: '100', label: 'PageSpeed (desktop)' },
+  { value: '93', label: 'PageSpeed (mobile)' }
 ]
 
 export default function Page() {
@@ -90,8 +91,7 @@ export default function Page() {
 
       <h2>The result</h2>
       <p>
-        Between May and October 2026, Search Console shows the average Google position moving from
-        <strong> 52 to 17</strong>, with <strong>84 pages averaging a top-10 position</strong> and{' '}
+        Between May and October 2026, Search Console shows <strong>84 pages averaging a top-10 position</strong> and{' '}
         <strong>1,836 impressions in Google&apos;s AI search features</strong>. The content is now
         cited in AI answers by ChatGPT, Gemini, Perplexity and Google AI Mode (confirmed via Ahrefs).
         PageSpeed scores <strong>100 on desktop and 93 on mobile</strong>, with an SEO score of 100.

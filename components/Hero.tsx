@@ -82,6 +82,17 @@ export default function Hero() {
                   Résumé
                 </a>
               </div>
+              <p className="eyebrow mt-5 text-ink-soft">
+                {heroData.studioNote}:{' '}
+                <a
+                  href={personalInfo.studioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-anim text-ink"
+                >
+                  futureframesolution.com
+                </a>
+              </p>
             </div>
 
             <div className="hero-fade md:col-span-5" style={{ animationDelay: '0.28s' }}>
