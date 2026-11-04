@@ -53,28 +53,49 @@ export default function CaseStudyLayout({
           {deck}
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <div className="flex flex-wrap gap-2">
-            {stack.map((tech) => (
-              <span key={tech} className="chip border-rule">
-                {tech}
-              </span>
-            ))}
-          </div>
-          {liveUrl && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 font-display text-base font-bold"
-            >
-              <span className="link-anim">{liveLabel ?? 'View live'}</span>
-              <ArrowUpRight size={16} className="text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          )}
-        </div>
+        <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* At-a-glance panel: top on mobile, sticky right column on desktop */}
+          <aside className="lg:order-2 lg:col-span-4">
+            <div className="border border-ink bg-paper p-6 lg:sticky lg:top-24">
+              <p className="eyebrow text-accent">At a glance</p>
+              <p className="mt-3 font-display text-lg font-bold leading-snug">{kind}</p>
 
-        <div className="prose-editorial mt-14 max-w-3xl">{children}</div>
+              <p className="eyebrow mt-6 text-ink-soft">Stack</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {stack.map((tech) => (
+                  <span key={tech} className="chip border-rule">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-6 inline-flex items-center gap-1.5 font-display text-base font-bold"
+                >
+                  <span className="link-anim">{liveLabel ?? 'View live'}</span>
+                  <ArrowUpRight size={16} className="text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              )}
+
+              <a
+                href={personalInfo.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="calendly-casestudy-aside"
+                className="group mt-6 flex w-full items-center justify-center gap-2 border border-ink bg-ink px-5 py-3 font-display text-base font-bold text-paper transition-colors hover:bg-accent hover:border-accent"
+              >
+                Book a free 30-min call
+                <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+          </aside>
+
+          <div className="prose-editorial min-w-0 lg:order-1 lg:col-span-8">{children}</div>
+        </div>
 
         {/* CTA band */}
         <div className="mt-16 border-t-2 border-ink pt-10">
