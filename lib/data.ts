@@ -194,7 +194,7 @@ export const experienceData: Experience[] = [
     company: 'Future Frame',
     type: 'Founder',
     role: 'Founder',
-    period: 'Sep 2026 – Present',
+    period: 'Apr 2024 – Present',
     highlights: [
       'Co-founded a 3-person studio; I lead AI Speed-to-Lead and AI Visibility for real estate and mortgage teams',
       'Built a working speed-to-lead demo: form, AI voice or WhatsApp in under 60 seconds, qualification, booking and CRM record',
