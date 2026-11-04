@@ -1,4 +1,4 @@
-import { CALENDLY_URL, EMAIL, FUTURE_FRAME_PRICING_URL, FUTURE_FRAME_URL, GITHUB_URL, LINKEDIN_URL } from './site'
+import { CALENDLY_URL, EMAIL, FUTURE_FRAME_URL, GITHUB_URL, LINKEDIN_URL } from './site'
 
 // Personal Information
 export const personalInfo = {
@@ -38,7 +38,7 @@ export const heroData = {
   role: 'Full-stack engineer (Next.js, Node, AI)',
   headlineLead: 'AI Speed-to-Lead & AI Visibility',
   headlineTail: 'for real estate and mortgage teams',
-  deck: 'I help real estate teams (5–30 agents) and mortgage-broker and loan-officer teams answer every lead in 60 seconds and get recommended by ChatGPT. I am a full-stack engineer (Next.js, Node, AI) and the founder of Future Frame, the studio behind the work.',
+  deck: 'I help real estate teams (5–30 agents) and mortgage-broker and loan-officer teams answer every lead in 60 seconds and get recommended by ChatGPT. I am a full-stack engineer (Next.js, Node, AI) and the founder of Future Frame. You work with me directly: I sell and deliver everything myself.',
   studioNote: 'Founder of Future Frame',
   edition: 'AI SPEED-TO-LEAD · AI VISIBILITY · NEXT.JS SPEED FIX · CUSTOM BUILDS',
   availabilityLabel: 'Available for projects · US / UK / Canada / Australia / UAE',
@@ -49,7 +49,7 @@ export const heroData = {
 
 // About Section — written from a prospective client's point of view.
 export const aboutData = {
-  bio: 'I founded Future Frame, a small studio that helps real estate and mortgage teams answer every lead in 60 seconds and get recommended by AI search; this site is the engineer behind it. Working with me is straightforward. We start with a clear scope and fixed milestones, you see a working demo every week, and at handoff you own typed, documented code — not a black box. I work remotely from Karachi with afternoon overlap for US, UK, Canada, Australia and UAE teams, so feedback loops stay short and deadlines stay real.',
+  bio: 'I help real estate and mortgage teams answer every lead in 60 seconds and get recommended by AI search, and I build custom software for product teams. I am also the founder of Future Frame. When you hire me, you work with me directly: I scope, build and deliver everything myself. Working with me is straightforward. We start with a clear scope and fixed milestones, you see a working demo every week, and at handoff you own typed, documented code — not a black box. I work remotely from Karachi with afternoon overlap for US, UK, Canada, Australia and UAE teams, so feedback loops stay short and deadlines stay real.',
   // "By the numbers" — proof clients care about (see Source of truth).
   stats: [
     { value: '68→12', label: 'Avg. Google position · texttoolsai.app (Aug→Nov 2026)' },
@@ -96,8 +96,6 @@ export interface EntryOffer {
   price: string
   description: string
   cta: string
-  secondaryHref?: string
-  secondaryLabel?: string
 }
 
 export const pilotOffer: EntryOffer = {
@@ -105,10 +103,8 @@ export const pilotOffer: EntryOffer = {
   title: '14-day AI Speed-to-Lead Pilot',
   price: '$297 founding price',
   description:
-    '$297 founding price for the first 3 clients. Every lead contacted in under 60 seconds, or you get a full refund. Delivered through Future Frame.',
-  cta: 'Book a free 30-min call',
-  secondaryHref: FUTURE_FRAME_PRICING_URL,
-  secondaryLabel: 'See Future Frame pricing'
+    '$297 founding price for the first 3 clients. Every lead contacted in under 60 seconds, or you get a full refund.',
+  cta: 'Book a free 30-min call'
 }
 
 export const auditOffer: EntryOffer = {
@@ -116,10 +112,8 @@ export const auditOffer: EntryOffer = {
   title: 'AI Visibility Audit + 14-day fix',
   price: '$297 founding price',
   description:
-    'Start with a free AI-visibility snapshot: do ChatGPT, Gemini and Perplexity recommend you or your competitors? Then a 14-day fix sprint on the gaps. Delivered through Future Frame.',
-  cta: 'Book a free 30-min call',
-  secondaryHref: FUTURE_FRAME_PRICING_URL,
-  secondaryLabel: 'See Future Frame pricing'
+    'Start with a free AI-visibility snapshot: do ChatGPT, Gemini and Perplexity recommend you or your competitors? Then a 14-day fix sprint on the gaps.',
+  cta: 'Book a free 30-min call'
 }
 
 // Tech Stack Section
@@ -196,7 +190,7 @@ export const experienceData: Experience[] = [
     role: 'Founder',
     period: 'Apr 2024 – Present',
     highlights: [
-      'Co-founded a 3-person studio; I lead AI Speed-to-Lead and AI Visibility for real estate and mortgage teams',
+      'Co-founded a 3-person studio; I personally lead AI Speed-to-Lead and AI Visibility work for real estate and mortgage teams',
       'Built a working speed-to-lead demo: form, AI voice or WhatsApp in under 60 seconds, qualification, booking and CRM record',
       'Run my own AI-visibility case study at texttoolsai.app: average Google position ~68 to ~12 in 3 months'
     ]
@@ -221,17 +215,6 @@ export const experienceData: Experience[] = [
       'Cut Hospital Management System page loads by 40% via code-splitting and image optimization',
       'Built and documented REST APIs (Node/Express + MongoDB) with JWT role-based access',
       'Converted from intern to full-time on the strength of the performance work'
-    ]
-  },
-  {
-    company: 'BehinDev',
-    type: 'Remote Internship',
-    role: 'Full-Stack Developer Intern',
-    period: 'Mar 2024 – Jun 2024',
-    highlights: [
-      'Delivered React + Firebase modules and deployed to Vercel across a structured program',
-      'Built Next.js + MongoDB community features deployed to a VPS',
-      'Shipped Swift Mart (e-commerce) and a job portal end-to-end'
     ]
   }
 ]
@@ -286,7 +269,7 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     title: 'AI Speed-to-Lead Agent',
-    type: 'Future Frame · Working demo',
+    type: 'My product · Working demo',
     problem:
       'Most new leads go unanswered for hours. A 2026 Pied Piper study of 2,198 inquiries to 21 large real-estate brands found only 10% heard from an agent within an hour.',
     whatIBuilt:
@@ -302,7 +285,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'speed-to-lead'
   },
   {
-    title: 'texttoolsai.app',
+    title: 'Text Tools AI',
     type: 'My own product · AI Visibility',
     problem:
       'A brand-new product with no backlinks, no budget and no search presence had to become visible to Google and to AI assistants from scratch.',
@@ -315,7 +298,7 @@ export const caseStudies: CaseStudy[] = [
       'PageSpeed 100 desktop / 93 mobile'
     ],
     stack: ['Next.js', 'llms.txt', 'Schema', 'GEO / AEO', 'Core Web Vitals'],
-    link: 'https://texttoolsai.app',
+    link: 'https://www.texttoolsai.app',
     linkLabel: 'Visit site',
     slug: 'texttoolsai-seo'
   },
@@ -336,17 +319,18 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     title: 'Aitek Client Portal',
-    type: 'US software house · SaaS',
+    type: 'Aitek Solutions (US software house) · Full-Stack Developer',
     problem:
-      'A US software house needed one platform to onboard clients and run delivery end-to-end, instead of scattered docs and email.',
+      'Aitek Solutions, a US-based software house in Chicago, ran client onboarding and delivery over scattered docs and email, and needed one platform for onboarding plus internal team management.',
     whatIBuilt:
-      'A multi-tenant delivery platform (Next.js 14 + NestJS in a Turborepo) with role-based access across Admin, PM, Developer and Client, KYC onboarding, a questionnaire engine, milestones, deliverables, e-signatures, and dev/prod CI/CD.',
+      'I led end-to-end frontend and backend development of a multi-tenant client onboarding and team-management platform: strict per-company tenant isolation; Admin, PM, Developer and Client roles; KYC onboarding; a per-service questionnaire engine; milestones and deliverable approvals; agreements with e-signatures; document management; real-time messaging and notifications; and AI-assisted features. Its reusable tenant-isolation, authentication and billing modules sped up later SaaS builds.',
     results: [
-      'Used daily by the software house’s clients',
-      'Strict per-company tenant isolation across every role',
+      'Used daily by the company’s active client base',
+      'Strict tenant isolation across every role',
+      'Production-deployed with dev, UAT and production pipelines',
       'Private project — no public link'
     ],
-    stack: ['Next.js 14', 'NestJS', 'Turborepo', 'PostgreSQL', 'Prisma', 'Docker'],
+    stack: ['Next.js 14', 'NestJS', 'Prisma', 'PostgreSQL', 'Clerk', 'Socket.IO', 'Turborepo', 'Docker'],
     private: true,
     slug: 'aitek-client-portal'
   },
@@ -460,7 +444,7 @@ export const currentlyData = {
     },
     {
       title: 'Founding · Future Frame',
-      description: 'Future Frame, my studio, helping real estate and mortgage teams answer every lead in 60 seconds and get recommended by AI search',
+      description: 'Founder of Future Frame, a small studio I co-founded in 2024',
       icon: 'Users',
       href: FUTURE_FRAME_URL
     },

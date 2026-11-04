@@ -27,20 +27,20 @@ export const metadata: Metadata = {
 
 const facts = [
   { value: '~60s', label: 'Target first contact' },
-  { value: '3', label: 'Channels: web call, phone, WhatsApp' },
+  { value: '3', label: 'Channels' },
   { value: '10', label: 'Industry templates' },
-  { value: '4', label: 'Booking / CRM targets: Cal.com, Google Calendar, HubSpot, Sheets' }
+  { value: '4', label: 'Booking / CRM targets' }
 ]
 
 export default function Page() {
   return (
     <CaseStudyLayout
-      kind="AI lead response · Future Frame · Working demo"
+      kind="AI lead response · My product · Working demo"
       title="AI Speed-to-Lead Agent"
       deck="When a lead fills in a web form, an AI assistant calls or WhatsApps them within about a minute, qualifies them, books the appointment and logs it to the CRM. This is a working demo and internal pilot, not a client deployment."
       stack={['Next.js', 'n8n', 'Vapi', 'Twilio / Meta WhatsApp', 'Groq', 'Cal.com', 'HubSpot']}
       liveUrl="https://console-adnan-projects.vercel.app"
-      liveLabel="Try the live demo console"
+      liveLabel="Try the live demo"
     >
       <div className="metric-grid">
         {facts.map((m, i) => (
@@ -127,18 +127,15 @@ export default function Page() {
           live demo console
         </a>
         . The first paying clients will be founding clients on a 14-day pilot: every lead contacted
-        in under 60 seconds, or a full refund. Details are on{' '}
-        <a href="https://www.futureframesolution.com/pricing" target="_blank" rel="noopener noreferrer">
-          Future Frame pricing
-        </a>
-        .
+        in under 60 seconds, or a full refund. I build, run and support it myself.
       </p>
       <p>
-        This is built and sold through{' '}
-        <a href="https://www.futureframesolution.com" target="_blank" rel="noopener noreferrer">
-          Future Frame
+        I built this for real estate and mortgage teams in the US, Canada and Australia. If you want
+        to see it on your own leads,{' '}
+        <a href="https://calendly.com/adnasir607/30min" target="_blank" rel="noopener noreferrer">
+          book a free 30-minute call
         </a>
-        , my studio, for real estate and mortgage teams in the US, Canada and Australia.
+        .
       </p>
     </CaseStudyLayout>
   )

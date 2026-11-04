@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     'mortgage lead response',
     'AI lead response',
     'AI lead follow-up automation',
-    'Future Frame',
     'Full Stack Developer',
     'AI Engineer',
     'SaaS development',

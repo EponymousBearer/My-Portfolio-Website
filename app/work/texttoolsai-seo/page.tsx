@@ -36,10 +36,10 @@ export default function Page() {
   return (
     <CaseStudyLayout
       kind="AI Visibility · My own product"
-      title="texttoolsai.app"
+      title="Text Tools AI"
       deck="Average Google position ~68 to ~12 in 3 months (Aug–Nov 2026). A brand-new product with no backlinks and no budget, built to be found by Google and cited by AI assistants."
       stack={['Next.js', 'llms.txt', 'Schema', 'GEO / AEO', 'Internal linking', 'Core Web Vitals']}
-      liveUrl="https://texttoolsai.app"
+      liveUrl="https://www.texttoolsai.app"
       liveLabel="Visit texttoolsai.app"
     >
       <div className="metric-grid">

@@ -37,16 +37,6 @@ function OfferCard({
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </a>
-          {offer.secondaryHref && (
-            <a
-              href={offer.secondaryHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-display text-base font-bold text-paper link-anim"
-            >
-              {offer.secondaryLabel}
-            </a>
-          )}
         </div>
       </div>
     </div>
