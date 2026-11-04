@@ -13,10 +13,10 @@ const FAM = 'Bricolage Grotesque'
 
 const NAME_TOP = 'MUHAMMAD'
 const NAME_BOTTOM = 'ADNAN'
-const ROLE = 'FULL STACK + AI ENGINEER — TECHNICAL SEO'
-const LOCATION = 'KARACHI · REMOTE · US / UK / CA / UAE'
-const DECK_1 = 'SaaS platforms, e-commerce stores &amp; AI web apps for'
-const DECK_2 = 'founders — shipped on deadline, fast &amp; found on Google.'
+const ROLE = 'AI SPEED-TO-LEAD &amp; AI VISIBILITY'
+const LOCATION = 'KARACHI · REMOTE · US / UK / CA / AU / UAE'
+const DECK_1 = 'Real estate &amp; mortgage teams: every lead answered'
+const DECK_2 = 'in 60 seconds, and recommended by ChatGPT.'
 
 // Faint blueprint grid lines every 40px
 let grid = ''
