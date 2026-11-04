@@ -1,8 +1,12 @@
-import { ArrowUpRight, FileText, MapPin } from 'lucide-react'
+import { ArrowUpRight, MapPin } from 'lucide-react'
 import { heroData, personalInfo, techStackData } from '@/lib/data'
 
 const [firstName, ...restName] = personalInfo.name.split(' ')
 const lastName = restName.join(' ')
+
+const [availability, ...regionParts] = heroData.availabilityLabel.split(' · ')
+const regions = regionParts.join(' · ')
+const editionParts = heroData.edition.split(' · ')
 
 // Flatten the stack into a repeating wire ticker
 const ticker = techStackData.flatMap((c) => c.skills)
@@ -11,25 +15,42 @@ export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden">
       <div className="wrap pt-10 md:pt-16">
-        {/* Dateline row */}
-        <div className="hero-fade flex flex-wrap items-center justify-between gap-y-2 border-b border-ink pb-3">
-          <span className="eyebrow flex items-center gap-1.5 text-ink-soft">
-            <MapPin size={12} strokeWidth={2.5} className="text-accent" />
-            {personalInfo.location}
-          </span>
-          <span className="eyebrow hidden text-ink-soft sm:inline">{heroData.edition}</span>
-          <span className="eyebrow flex items-center gap-1.5 text-ink-soft">
-            {heroData.available && (
-              <span className="inline-block h-2 w-2 animate-blink rounded-full bg-accent" />
-            )}
-            {heroData.availabilityLabel}
-          </span>
+        {/* Dateline: location + availability on one row, edition line beneath */}
+        <div className="hero-fade border-b border-ink pb-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-x-8">
+            <span className="eyebrow flex items-center gap-2 text-ink-soft">
+              <MapPin size={12} strokeWidth={2.5} className="shrink-0 text-accent" />
+              {personalInfo.location}
+            </span>
+            <span className="eyebrow flex items-start gap-2 text-ink-soft sm:items-center">
+              {heroData.available && (
+                <span className="mt-[0.35em] inline-block h-2 w-2 shrink-0 animate-blink rounded-full bg-accent sm:mt-0" />
+              )}
+              <span className="flex flex-col gap-1 tracking-[0.18em] sm:flex-row sm:flex-wrap sm:gap-x-2 sm:tracking-[0.28em]">
+                <span>{availability}</span>
+                <span className="hidden sm:inline" aria-hidden="true">·</span>
+                <span>{regions}</span>
+              </span>
+            </span>
+          </div>
+          <p className="eyebrow mt-2 hidden flex-wrap gap-x-3 gap-y-1 text-ink-soft sm:flex">
+            {editionParts.map((part, i) => (
+              <span key={part} className="inline-flex items-center gap-3">
+                {i > 0 && (
+                  <span className="text-accent" aria-hidden="true">
+                    ·
+                  </span>
+                )}
+                {part}
+              </span>
+            ))}
+          </p>
         </div>
 
         {/* Masthead nameplate */}
         <div className="relative pt-6 md:pt-10">
           <p className="hero-fade eyebrow mb-3 text-accent md:mb-5" style={{ animationDelay: '0.08s' }}>
-            Full Stack + AI Engineer · Technical SEO
+            AI Speed-to-Lead &amp; AI Visibility for real estate and mortgage teams
           </p>
 
           <h1 className="font-display font-extrabold leading-[0.82] tracking-mega">
@@ -72,16 +93,18 @@ export default function Hero() {
                 <a href="#work" className="font-display text-base font-bold link-anim">
                   {heroData.ctaSecondary}
                 </a>
+              </div>
+              <p className="eyebrow mt-5 text-ink-soft">
+                {heroData.studioNote}:{' '}
                 <a
-                  href="/Muhammad-Adnan-Resume.pdf"
+                  href={personalInfo.studioUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-display text-base font-bold link-anim"
+                  className="link-anim text-ink"
                 >
-                  <FileText size={17} className="text-accent" />
-                  Résumé
+                  futureframesolution.com
                 </a>
-              </div>
+              </p>
             </div>
 
             <div className="hero-fade md:col-span-5" style={{ animationDelay: '0.28s' }}>
@@ -91,7 +114,7 @@ export default function Hero() {
                     <source srcSet="/myself.webp" type="image/webp" />
                     <img
                       src="/myself.jpg"
-                      alt={`Portrait of ${personalInfo.name}, Full Stack and AI Engineer`}
+                      alt={`Portrait of ${personalInfo.name}, full-stack engineer`}
                       width={600}
                       height={901}
                       fetchPriority="high"

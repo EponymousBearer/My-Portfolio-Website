@@ -1,13 +1,14 @@
-import { CALENDLY_URL, EMAIL, GITHUB_URL, LINKEDIN_URL } from './site'
+import { CALENDLY_URL, EMAIL, FUTURE_FRAME_URL, GITHUB_URL, LINKEDIN_URL } from './site'
 
 // Personal Information
 export const personalInfo = {
   name: 'Muhammad Adnan',
-  role: 'Full Stack + AI Engineer',
-  positioning: 'Full Stack + AI Engineer for SaaS founders & agencies',
+  role: 'Full-stack engineer (Next.js, Node, AI)',
+  positioning: 'AI Speed-to-Lead & AI Visibility for real estate and mortgage teams',
   studio: 'Future Frame',
+  studioUrl: FUTURE_FRAME_URL,
   location: 'Karachi, Pakistan',
-  regions: 'US · UK · Canada · UAE',
+  regions: 'US · UK · Canada · Australia · UAE',
   email: EMAIL,
   calendly: CALENDLY_URL,
   // Stored without protocol so existing views can render them as labels.
@@ -34,12 +35,13 @@ export const navLinks: NavLink[] = [
 
 // Hero Section
 export const heroData = {
-  role: 'Full Stack + AI Engineer',
-  headlineLead: 'Full Stack + AI Engineer',
-  headlineTail: 'for SaaS founders & agencies',
-  deck: 'I build SaaS platforms, e-commerce stores and AI-powered web apps that ship on deadline, load fast, and get found on Google.',
-  edition: 'SAAS · E-COMMERCE · AI · TECHNICAL SEO',
-  availabilityLabel: 'Available for projects · US / UK / Canada / UAE',
+  role: 'Full-stack engineer (Next.js, Node, AI)',
+  headlineLead: 'AI Speed-to-Lead & AI Visibility',
+  headlineTail: 'for real estate and mortgage teams',
+  deck: 'I help real estate teams (5–30 agents) and mortgage-broker and loan-officer teams answer every lead in 60 seconds and get recommended by ChatGPT. I am a full-stack engineer (Next.js, Node, AI) and the founder of Future Frame. You work with me directly: I sell and deliver everything myself.',
+  studioNote: 'Founder of Future Frame',
+  edition: 'AI SPEED-TO-LEAD · AI VISIBILITY · NEXT.JS SPEED FIX · CUSTOM BUILDS',
+  availabilityLabel: 'Available for projects · US / UK / Canada / Australia / UAE',
   available: true,
   ctaPrimary: 'Book a free 30-min call',
   ctaSecondary: 'View Projects'
@@ -47,10 +49,11 @@ export const heroData = {
 
 // About Section — written from a prospective client's point of view.
 export const aboutData = {
-  bio: 'Working with me is straightforward. We start with a clear scope and fixed milestones, you see a working demo every week, and at handoff you own typed, documented code — not a black box. I work remotely from Karachi with afternoon overlap for US, UK, Canada and UAE teams, so feedback loops stay short and deadlines stay real.',
+  bio: 'I help real estate and mortgage teams answer every lead in 60 seconds and get recommended by AI search, and I build custom software for product teams. I am also the founder of Future Frame. When you hire me, you work with me directly: I scope, build and deliver everything myself. Working with me is straightforward. We start with a clear scope and fixed milestones, you see a working demo every week, and at handoff you own typed, documented code — not a black box. I work remotely from Karachi with afternoon overlap for US, UK, Canada, Australia and UAE teams, so feedback loops stay short and deadlines stay real.',
   // "By the numbers" — proof clients care about (see Source of truth).
   stats: [
-    { value: '52→17', label: 'Avg. Google position · texttoolsai.app' },
+    { value: '68→12', label: 'Avg. Google position · texttoolsai.app (Aug→Nov 2026)' },
+    { value: '100', label: 'PageSpeed desktop · texttoolsai.app' },
     { value: '40%', label: 'Faster page loads' },
     { value: '50%', label: 'Faster time-to-market' },
     { value: '12 wk', label: 'Delivery deadline hit' }
@@ -65,34 +68,53 @@ export interface Service {
 
 export const servicesData: Service[] = [
   {
-    title: 'SaaS Platforms & MVPs',
+    title: 'AI Speed-to-Lead',
     description:
-      'Multi-tenant architecture, auth and roles, Stripe subscriptions and admin dashboards, built to scale past launch.'
+      'Every web lead gets an AI call or WhatsApp in under 60 seconds, qualified and booked into your calendar and CRM. For real estate and mortgage teams.'
   },
   {
-    title: 'E-Commerce',
+    title: 'AI Visibility (AEO/GEO)',
     description:
-      'Fast Next.js and headless Shopify storefronts, Stripe checkout, CMS catalogs and multi-vendor marketplaces.'
+      'Check whether ChatGPT, Gemini, Perplexity and Google AI Overviews recommend you or your competitors, then fix it in 14 days: AI crawler access, schema and structured data, llms.txt, indexing, entity and profile consistency, and answer-first pages. For the same real estate and mortgage teams.'
   },
   {
-    title: 'AI Integrations',
+    title: 'Next.js Speed Fix',
     description:
-      'ML models served through FastAPI, AI features inside your product, and n8n/agentic automations that remove manual work.'
+      'Mobile Core Web Vitals and LCP fixes for Next.js sites in a fixed-price 5-day sprint, from $497.'
   },
   {
-    title: 'Technical SEO & Performance',
+    title: 'Custom Builds',
     description:
-      'Core Web Vitals, server rendering, structured data and indexing fixes, so your site gets found on Google and in AI search.'
+      'SaaS platforms, client portals, marketplaces, e-commerce and AI integrations, shipped by the engineer who builds your AI. From $3k.'
   }
 ]
 
-// Entry offer — shown as a highlighted card. No price (book a call).
-export const auditOffer = {
-  tag: 'Entry offer',
-  title: 'Next.js Speed + Technical SEO Audit',
-  description: '5-day turnaround, Loom walkthrough and a prioritized fix list.',
-  cta: 'Book a call'
-} as const
+// Entry offers — shown as highlighted cards. Founding-client pricing.
+export interface EntryOffer {
+  tag: string
+  title: string
+  price: string
+  description: string
+  cta: string
+}
+
+export const pilotOffer: EntryOffer = {
+  tag: 'Founding-client pilot · first 3 clients',
+  title: '14-day AI Speed-to-Lead Pilot',
+  price: '$297 founding price',
+  description:
+    '$297 founding price for the first 3 clients. Every lead contacted in under 60 seconds, or you get a full refund.',
+  cta: 'Book a free 30-min call'
+}
+
+export const auditOffer: EntryOffer = {
+  tag: 'Founding-client offer',
+  title: 'AI Visibility Audit + 14-day fix',
+  price: '$297 founding price',
+  description:
+    'Start with a free AI-visibility snapshot: do ChatGPT, Gemini and Perplexity recommend you or your competitors? Then a 14-day fix sprint on the gaps.',
+  cta: 'Book a free 30-min call'
+}
 
 // Tech Stack Section
 export interface TechCategory {
@@ -118,8 +140,8 @@ export const techStackData: TechCategory[] = [
     skills: ['Python', 'FastAPI', 'scikit-learn', 'SHAP', 'Generative AI', 'n8n']
   },
   {
-    name: 'Technical SEO & Performance',
-    skills: ['Core Web Vitals', 'Lighthouse', 'Schema markup', 'SSR / SSG']
+    name: 'Performance & AI Search',
+    skills: ['Core Web Vitals', 'Lighthouse', 'Schema markup', 'llms.txt', 'SSR / SSG']
   },
   {
     name: 'DevOps & Tools',
@@ -163,10 +185,21 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
+    company: 'Future Frame',
+    type: 'Founder',
+    role: 'Founder',
+    period: 'Apr 2024 – Present',
+    highlights: [
+      'Co-founded a 3-person studio; I personally lead AI Speed-to-Lead and AI Visibility work for real estate and mortgage teams',
+      'Built a working speed-to-lead demo: form, AI voice or WhatsApp in under 60 seconds, qualification, booking and CRM record',
+      'Run my own AI-visibility case study at texttoolsai.app: average Google position ~68 to ~12 in 3 months'
+    ]
+  },
+  {
     company: 'Aitek Solutions',
     type: 'Remote',
     role: 'Full-Stack Developer',
-    period: 'Nov 2025 – Present',
+    period: 'Nov 2025 – Oct 2026',
     highlights: [
       'Built a multi-tenant client-delivery platform (Next.js 14 + NestJS, Turborepo) now used daily by a US software house’s clients',
       'Shipped Quiquiq — a food delivery platform with real-time tracking and payments — inside a 12-week deadline',
@@ -182,17 +215,6 @@ export const experienceData: Experience[] = [
       'Cut Hospital Management System page loads by 40% via code-splitting and image optimization',
       'Built and documented REST APIs (Node/Express + MongoDB) with JWT role-based access',
       'Converted from intern to full-time on the strength of the performance work'
-    ]
-  },
-  {
-    company: 'BehinDev',
-    type: 'Remote Internship',
-    role: 'Full-Stack Developer Intern',
-    period: 'Mar 2024 – Jun 2024',
-    highlights: [
-      'Delivered React + Firebase modules and deployed to Vercel across a structured program',
-      'Built Next.js + MongoDB community features deployed to a VPS',
-      'Shipped Swift Mart (e-commerce) and a job portal end-to-end'
     ]
   }
 ]
@@ -246,36 +268,69 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: 'texttoolsai.app',
-    type: 'My own product · Technical SEO',
+    title: 'AI Speed-to-Lead Agent',
+    type: 'My product · Working demo',
     problem:
-      'A brand-new product with no backlinks, no budget, and no search presence needed to earn organic traffic from scratch.',
+      'Most new leads go unanswered for hours. A 2026 Pied Piper study of 2,198 inquiries to 21 large real-estate brands found only 10% heard from an agent within an hour.',
     whatIBuilt:
-      'I built and SEO’d it solo: a topic-hub structure with deep internal linking, content written for real search queries, and aggressive Core Web Vitals work.',
+      'A configurable end-to-end system: a lead submits a form, an AI calls or WhatsApps them in seconds, qualifies them with vertical-specific questions, books a meeting and saves the lead to the CRM. Built with a Next.js demo console, n8n workflows, Vapi voice, Twilio/Meta WhatsApp, a Groq LLM, Cal.com or Google Calendar, and HubSpot or Google Sheets.',
     results: [
-      'Average Google position moved 52 → 17 (May → Oct 2026, Search Console)',
-      '84 pages averaging a top-10 position; 1,836 impressions in Google’s AI search features',
-      'Cited in AI answers by ChatGPT, Gemini, Perplexity and Google AI Mode (Ahrefs)',
-      'PageSpeed 100 desktop / 93 mobile, SEO 100'
+      'Working demo and internal pilot, not a client deployment. No client results yet.',
+      'Live end-to-end flow: form, voice or WhatsApp, qualification, booking, CRM record, human handoff',
+      '10 industry templates and a live event timeline in the demo console'
     ],
-    stack: ['Next.js', 'Technical SEO', 'Core Web Vitals', 'Schema'],
-    link: 'https://texttoolsai.app',
+    stack: ['Next.js', 'n8n', 'Vapi', 'Twilio / Meta WhatsApp', 'Groq', 'Cal.com', 'HubSpot'],
+    link: 'https://console-adnan-projects.vercel.app',
+    linkLabel: 'Try the live demo',
+    slug: 'speed-to-lead'
+  },
+  {
+    title: 'Text Tools AI',
+    type: 'My own product · AI Visibility',
+    problem:
+      'A brand-new product with no backlinks, no budget and no search presence had to become visible to Google and to AI assistants from scratch.',
+    whatIBuilt:
+      'I built and optimized it solo for AI visibility: llms.txt, answer-first (GEO) content blocks, schema clean-up (Article with author, deduplicated breadcrumb and FAQ markup), entity signals, topic hubs with deep internal linking, plus Core Web Vitals work.',
+    results: [
+      'Average Google position ~68 to ~12 in 3 months (Aug–Nov 2026)',
+      '97 of 172 pages averaging a top-10 position; 33,086 impressions over the last 3 months',
+      '3,502 impressions in Google’s AI features over 3 months; cited in AI answers by ChatGPT, Gemini and Perplexity',
+      'PageSpeed 100 desktop / 93 mobile'
+    ],
+    stack: ['Next.js', 'llms.txt', 'Schema', 'GEO / AEO', 'Core Web Vitals'],
+    link: 'https://www.texttoolsai.app',
     linkLabel: 'Visit site',
     slug: 'texttoolsai-seo'
   },
   {
-    title: 'Aitek Client Portal',
-    type: 'US software house · SaaS',
+    title: 'Fashion e-commerce store: mobile speed',
+    type: 'Delivered via Aitek Solutions (US software house)',
     problem:
-      'A US software house needed one platform to onboard clients and run delivery end-to-end, instead of scattered docs and email.',
+      'A Next.js + MongoDB fashion store was slow on mobile: PageSpeed 77, LCP 4.6 s and a 312 MB image payload.',
     whatIBuilt:
-      'A multi-tenant delivery platform (Next.js 14 + NestJS in a Turborepo) with role-based access across Admin, PM, Developer and Client, KYC onboarding, a questionnaire engine, milestones, deliverables, e-signatures, and dev/prod CI/CD.',
+      'A two-day speed fix with no redesign and no new theme: diagnosed with PageSpeed Insights and Core Web Vitals, compressed, converted and resized images, fixed render-blocking scripts and third-party apps, fixed rendering issues, and delivered a before/after report.',
     results: [
-      'Used daily by the software house’s clients',
-      'Strict per-company tenant isolation across every role',
+      'Mobile PageSpeed 77 to 99',
+      'LCP 4.6 s to 2.1 s',
+      'Image payload 312 MB to 15 MB; accessibility score 85 to 100'
+    ],
+    stack: ['Next.js', 'MongoDB', 'PageSpeed Insights', 'Core Web Vitals'],
+    slug: 'ecommerce-speed'
+  },
+  {
+    title: 'Aitek Client Portal',
+    type: 'Aitek Solutions (US software house) · Full-Stack Developer',
+    problem:
+      'Aitek Solutions, a US-based software house in Chicago, ran client onboarding and delivery over scattered docs and email, and needed one platform for onboarding plus internal team management.',
+    whatIBuilt:
+      'I led end-to-end frontend and backend development of a multi-tenant client onboarding and team-management platform: strict per-company tenant isolation; Admin, PM, Developer and Client roles; KYC onboarding; a per-service questionnaire engine; milestones and deliverable approvals; agreements with e-signatures; document management; real-time messaging and notifications; and AI-assisted features. Its reusable tenant-isolation, authentication and billing modules sped up later SaaS builds.',
+    results: [
+      'Used daily by the company’s active client base',
+      'Strict tenant isolation across every role',
+      'Production-deployed with dev, UAT and production pipelines',
       'Private project — no public link'
     ],
-    stack: ['Next.js 14', 'NestJS', 'Turborepo', 'PostgreSQL', 'Prisma', 'Docker'],
+    stack: ['Next.js 14', 'NestJS', 'Prisma', 'PostgreSQL', 'Clerk', 'Socket.IO', 'Turborepo', 'Docker'],
     private: true,
     slug: 'aitek-client-portal'
   },
@@ -292,7 +347,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     title: 'REHASH',
-    type: 'Canadian client · Marketplace',
+    type: 'Freelance · Canadian client',
     problem:
       'A Canadian client wanted a reverse e-commerce marketplace where sellers get instant, condition-based quotes.',
     whatIBuilt:
@@ -301,19 +356,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB'],
     link: 'https://rehash-project-frontend.vercel.app/',
     linkLabel: 'View live'
-  },
-  {
-    title: 'AURA',
-    type: 'Final-year project · AI research',
-    problem:
-      'Antibiotic choices should reflect local resistance patterns, but that data rarely reaches the point of decision.',
-    whatIBuilt:
-      'A live ML web app that recommends antibiotics from local resistance patterns, with explainable predictions (Python, scikit-learn, FastAPI, Docker, SHAP, Next.js). Built as my final-year project.',
-    results: ['Working research prototype with a public demo', 'Explainable recommendations via SHAP'],
-    stack: ['Python', 'scikit-learn', 'FastAPI', 'SHAP', 'Docker', 'Next.js'],
-    link: 'https://aura-cdss.vercel.app',
-    linkLabel: 'View demo',
-    researchPrototype: true
   }
 ]
 
@@ -334,14 +376,6 @@ export const moreWork: Project[] = [
     stack: ['Next.js', 'TypeScript', 'Sanity', 'Stripe', 'Clerk'],
     tags: ['E-Commerce', 'Payments'],
     liveUrl: 'https://e-commerce-website-xi-ten.vercel.app/'
-  },
-  {
-    name: 'Tmustt',
-    description:
-      'Clothing e-commerce application with inventory and admin workflows, optimized for responsive, mobile-first shopping.',
-    stack: ['Next.js', 'MongoDB', 'Tailwind CSS', 'Stripe'],
-    tags: ['E-Commerce', 'Admin Panel'],
-    liveUrl: 'https://www.tmustt.com/'
   },
   {
     name: 'Swift Mart',
@@ -382,6 +416,14 @@ export const moreWork: Project[] = [
     stack: ['Next.js', 'Node.js', 'MongoDB'],
     tags: ['Scheduling', 'Dashboard'],
     liveUrl: 'https://appointment.bizneedle.xyz/'
+  },
+  {
+    name: 'AURA',
+    description:
+      'Final-year research prototype: a live ML web app that recommends antibiotics from local resistance patterns, with explainable predictions. Not a clinical product.',
+    stack: ['Python', 'scikit-learn', 'FastAPI', 'SHAP', 'Docker', 'Next.js'],
+    tags: ['AI Research', 'Prototype'],
+    liveUrl: 'https://aura-cdss.vercel.app'
   }
 ]
 
@@ -390,28 +432,30 @@ export interface CurrentActivity {
   title: string
   description: string
   icon: string
+  href?: string
 }
 
 export const currentlyData = {
   activities: [
     {
       title: 'Building',
-      description: 'SaaS platforms, e-commerce stores and AI web apps for clients',
+      description: 'AI speed-to-lead and AI visibility for real estate and mortgage teams, plus custom builds for clients',
       icon: 'Briefcase'
     },
     {
-      title: 'Founding',
-      description: 'Future Frame — a small, focused development studio',
-      icon: 'Users'
+      title: 'Founding · Future Frame',
+      description: 'Founder of Future Frame, a small studio I co-founded in 2024',
+      icon: 'Users',
+      href: FUTURE_FRAME_URL
     },
     {
       title: 'Writing',
-      description: 'Content and tooling at texttoolsai.app — my own SEO case study',
+      description: 'Content and tooling at texttoolsai.app — my own AI-visibility case study',
       icon: 'BookOpen'
     },
     {
       title: 'Ask me about',
-      description: 'SaaS, Next.js, AI integrations & technical SEO',
+      description: 'AI speed-to-lead, AI visibility (AEO/GEO), Next.js speed and custom builds',
       icon: 'MessageCircle'
     }
   ],
@@ -435,14 +479,14 @@ export const contactData = {
   calendly: CALENDLY_URL,
   linkedin: 'www.linkedin.com/in/muhammadadnan-ai',
   location: 'Karachi, Pakistan',
-  availability: 'Mon–Fri, 2 PM–10 PM PKT',
-  availabilityNote: 'overlaps UK afternoon and US East morning',
-  heading: 'Have a product to build, a slow site to fix, or a deadline to hit?'
+  availability: 'Mon–Fri, 2 PM–8 PM PKT',
+  availabilityNote: 'overlaps the UK working day and US East early morning',
+  heading: 'Slow lead response, invisible to AI search, or a product to build?'
 } as const
 
 // Footer
 export const footerData = {
   // Static year keeps the statically-exported HTML deterministic across rebuilds.
   copyright: '© 2026 Muhammad Adnan. All rights reserved.',
-  tagline: 'Full Stack + AI Engineer · Founder of Future Frame'
+  tagline: 'Full-stack engineer (Next.js, Node, AI) · Founder of Future Frame'
 } as const

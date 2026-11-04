@@ -31,7 +31,18 @@ export default function CurrentlySection() {
               </div>
               <p className="eyebrow mt-4 text-ink-soft">{activity.title}</p>
               <p className="mt-2 font-display text-xl font-bold leading-snug tracking-mega">
-                {activity.description}
+                {activity.href ? (
+                  <a
+                    href={activity.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-anim"
+                  >
+                    {activity.description}
+                  </a>
+                ) : (
+                  activity.description
+                )}
               </p>
             </Reveal>
           )

@@ -7,6 +7,7 @@ export const SITE_URL = RAW_SITE_URL.replace(/\/+$/, '')
 
 export const EMAIL = 'adnasir607@gmail.com'
 export const CALENDLY_URL = 'https://calendly.com/adnasir607/30min'
+export const FUTURE_FRAME_URL = 'https://www.futureframesolution.com'
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/muhammadadnan-ai'
 export const GITHUB_URL = 'https://github.com/EponymousBearer'
 

@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/site'
 import { caseStudies } from '@/lib/data'
 
 // Fixed date keeps the statically-exported sitemap deterministic across builds.
-const LAST_MODIFIED = '2026-10-11'
+const LAST_MODIFIED = '2026-11-04'
 
 export const dynamic = 'force-static'
 

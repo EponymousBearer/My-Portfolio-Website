@@ -29,9 +29,9 @@ const jetbrains = JetBrains_Mono({
   preload: false
 })
 
-const TITLE = 'Muhammad Adnan | Full Stack + AI Engineer & Technical SEO'
+const TITLE = 'Muhammad Adnan | AI Speed-to-Lead & AI Visibility for Real Estate and Mortgage Teams'
 const DESCRIPTION =
-  'Full Stack + AI Engineer for SaaS founders & agencies in the US, UK, Canada and UAE. I build SaaS, e-commerce and AI web apps that ship on deadline, load fast and get found on Google.'
+  'AI Speed-to-Lead & AI Visibility for real estate and mortgage teams in the US, Canada and Australia: answer every lead in 60 seconds and get recommended by ChatGPT. Full-stack engineer (Next.js, Node, AI) and founder of Future Frame.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,12 +41,20 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
   keywords: [
+    'AI speed-to-lead',
+    'AI visibility',
+    'AEO',
+    'GEO',
+    'real estate lead response',
+    'mortgage lead response',
+    'AI lead response',
+    'AI lead follow-up automation',
     'Full Stack Developer',
     'AI Engineer',
     'SaaS development',
     'Next.js developer',
     'E-commerce developer',
-    'Technical SEO',
+    'Next.js speed fix',
     'Core Web Vitals',
     'Karachi',
     'Pakistan'
@@ -61,7 +69,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'Muhammad Adnan',
     locale: 'en_US',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Muhammad Adnan — Full Stack + AI Engineer for SaaS founders & agencies' }]
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Muhammad Adnan — AI Speed-to-Lead & AI Visibility, full-stack engineer' }]
   },
   twitter: {
     card: 'summary_large_image',
