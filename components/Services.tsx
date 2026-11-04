@@ -60,7 +60,7 @@ export default function Services() {
         index="01"
         label="Services"
         title="What I build for you"
-        kicker="Five ways I help founders and agencies ship, and two founding-price ways to start."
+        kicker="Four ways I help, and two founding-price ways to start."
       />
 
       <div className="grid grid-cols-1 gap-px border border-ink bg-ink sm:grid-cols-2">

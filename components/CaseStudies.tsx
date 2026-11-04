@@ -110,7 +110,7 @@ export default function CaseStudies() {
               index="02"
               label="Selected Work"
               title="Case Studies"
-              kicker="Shipped products, framed as problem, build and result. The AI speed-to-lead demo comes first; the SEO case study follows."
+              kicker="Shipped products, framed as problem, build and result. The AI speed-to-lead demo comes first, then the AI visibility and speed results."
             />
             <div>
               {caseStudies.map((study, i) => (

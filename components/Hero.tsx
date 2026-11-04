@@ -29,7 +29,7 @@ export default function Hero() {
         {/* Masthead nameplate */}
         <div className="relative pt-6 md:pt-10">
           <p className="hero-fade eyebrow mb-3 text-accent md:mb-5" style={{ animationDelay: '0.08s' }}>
-            Full Stack + AI Engineer · Technical SEO
+            AI Speed-to-Lead &amp; AI Visibility for real estate and mortgage teams
           </p>
 
           <h1 className="font-display font-extrabold leading-[0.82] tracking-mega">
@@ -102,7 +102,7 @@ export default function Hero() {
                     <source srcSet="/myself.webp" type="image/webp" />
                     <img
                       src="/myself.jpg"
-                      alt={`Portrait of ${personalInfo.name}, Full Stack and AI Engineer`}
+                      alt={`Portrait of ${personalInfo.name}, full-stack engineer`}
                       width={600}
                       height={901}
                       fetchPriority="high"
