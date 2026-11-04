@@ -281,7 +281,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       'Most new leads go unanswered for hours. A 2026 Pied Piper study of 2,198 inquiries to 21 large real-estate brands found only 10% heard from an agent within an hour.',
     whatIBuilt:
-      'A configurable end-to-end system: a lead submits a form, an AI calls or WhatsApps them in seconds, qualifies them with vertical-specific questions, books a meeting and saves the lead to the CRM. Built with a Next.js demo console, n8n workflows, Vapi voice, Twilio/Meta WhatsApp, a Groq LLM, Cal.com and HubSpot.',
+      'A configurable end-to-end system: a lead submits a form, an AI calls or WhatsApps them in seconds, qualifies them with vertical-specific questions, books a meeting and saves the lead to the CRM. Built with a Next.js demo console, n8n workflows, Vapi voice, Twilio/Meta WhatsApp, a Groq LLM, Cal.com or Google Calendar, and HubSpot or Google Sheets.',
     results: [
       'Working demo and internal pilot, not a client deployment. No client results yet.',
       'Live end-to-end flow: form, voice or WhatsApp, qualification, booking, CRM record, human handoff',

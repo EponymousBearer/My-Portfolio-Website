@@ -27,9 +27,9 @@ export const metadata: Metadata = {
 
 const facts = [
   { value: '~60s', label: 'Target first contact' },
-  { value: '2', label: 'Channels: voice + WhatsApp' },
+  { value: '3', label: 'Channels: web call, phone, WhatsApp' },
   { value: '10', label: 'Industry templates' },
-  { value: '0', label: 'Clients so far (demo / pilot)' }
+  { value: '4', label: 'Booking / CRM targets: Cal.com, Google Calendar, HubSpot, Sheets' }
 ]
 
 export default function Page() {
@@ -94,27 +94,30 @@ export default function Page() {
         <li>
           <strong>Voice (Vapi)</strong> — a voice agent that talks to the lead, runs the
           qualification script, then books and saves through tool calls. The demo runs in the browser
-          over WebRTC; real phone-number telephony is on the roadmap.
+          over WebRTC for free, and real outbound phone calls to US, UK, Canadian and Australian
+          numbers have been tested live.
         </li>
         <li>
           <strong>WhatsApp (Twilio / Meta)</strong> — the same qualify, book and save flow over chat,
-          with the session kept per phone number.
+          with the session kept per phone number. Tested live on Twilio: qualify, offer two slots,
+          book, save to the CRM. Meta Cloud is wired as well.
         </li>
         <li>
           <strong>LLM (Groq)</strong> — a fast tool-calling model drives the conversation, with
           prompts rendered from 10 industry templates, including real estate.
         </li>
         <li>
-          <strong>Booking and CRM</strong> — Cal.com for appointments and HubSpot for the lead
-          record. Google Calendar, Google Sheets and GoHighLevel are planned options.
+          <strong>Booking and CRM</strong> — Bookings go to Cal.com or Google Calendar, and leads are saved to
+          HubSpot or a Google Sheets row. Both Google paths are tested live on real credentials.
+          GoHighLevel is wired but switched off for now.
         </li>
       </ul>
 
       <h2>The result</h2>
       <p>
         <strong>This is a working demo and internal pilot. It has no client results yet</strong>, and
-        I am not claiming any. What exists today is the full flow, end to end: a form submission
-        triggers a voice or WhatsApp conversation, the assistant qualifies the lead, a real
+        I am not claiming any. What exists today is the full flow, end to end, tested live: a form
+        submission triggers a phone call, web call or WhatsApp conversation, the assistant qualifies the lead, a real
         appointment is booked, the lead lands in the CRM, and every step shows up in the live
         timeline.
       </p>
