@@ -1,4 +1,4 @@
-import { ArrowUpRight, FileText, MapPin } from 'lucide-react'
+import { ArrowUpRight, MapPin } from 'lucide-react'
 import { heroData, personalInfo, techStackData } from '@/lib/data'
 
 const [firstName, ...restName] = personalInfo.name.split(' ')
@@ -92,15 +92,6 @@ export default function Hero() {
                 </a>
                 <a href="#work" className="font-display text-base font-bold link-anim">
                   {heroData.ctaSecondary}
-                </a>
-                <a
-                  href="/Muhammad-Adnan-Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-display text-base font-bold link-anim"
-                >
-                  <FileText size={17} className="text-accent" />
-                  Résumé
                 </a>
               </div>
               <p className="eyebrow mt-5 text-ink-soft">

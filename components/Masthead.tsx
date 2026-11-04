@@ -74,14 +74,6 @@ export default function Masthead() {
             )
           })}
           <a
-            href="/Muhammad-Adnan-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="eyebrow py-1 text-ink transition-colors hover:text-accent"
-          >
-            Résumé
-          </a>
-          <a
             href={personalInfo.calendly}
             target="_blank"
             rel="noopener noreferrer"
@@ -114,16 +106,6 @@ export default function Masthead() {
               <span className="font-display text-xl font-bold">{link.label}</span>
             </button>
           ))}
-          <a
-            href="/Muhammad-Adnan-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="leader py-2 text-left"
-          >
-            <span className="eyebrow text-ink-soft">↓</span>
-            <span className="font-display text-xl font-bold">Résumé</span>
-          </a>
           <a
             href={personalInfo.calendly}
             target="_blank"
